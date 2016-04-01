@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>郑彧</title>
   <subtitle>郑彧</subtitle>
-  <link href="http://yu-zhengyu.github.com/note/atom.xml" rel="self"/>
+  <link href="/note/atom.xml" rel="self"/>
   
   <link href="http://yu-zhengyu.github.com/note/"/>
   <updated>2016-04-01T15:56:03.000Z</updated>
