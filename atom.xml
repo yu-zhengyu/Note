@@ -72,4 +72,37 @@
     
   </entry>
   
+  <entry>
+    <title>319.Bulb Switcher</title>
+    <link href="http://yu-zhengyu.github.com/note/2015/12/28/2015-12-28-Bulb-Switcher/"/>
+    <id>http://yu-zhengyu.github.com/note/2015/12/28/2015-12-28-Bulb-Switcher/</id>
+    <published>2015-12-28T14:22:30.000Z</published>
+    <updated>2016-04-01T23:13:24.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Difficulty-Medium&quot;&gt;&lt;a href=&quot;#Difficulty-Medium&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Medium&quot;&gt;&lt;/a&gt;Difficulty: Medium&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;p&gt;Given n = 3. &lt;/p&gt;
+&lt;p&gt;At first, the three bulbs are [off, off, off].&lt;/p&gt;
+&lt;p&gt;After first round, the three bulbs are [on, on, on].&lt;/p&gt;
+&lt;p&gt;After second round, the three bulbs are [on, off, on].&lt;/p&gt;
+&lt;p&gt;After third round, the three bulbs are [on, off, off]. &lt;/p&gt;
+&lt;p&gt;So you should return 1, because there is only one bulb is on.&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;这个问题其实就是一个数学问题，一个一个试，找出规律后你就会发现其实最后只会剩下平方数下标的灯泡会亮，例如：1，2，4，9，16…… 所以这一题就很简单了，直接对n开方，取整就是最后的结果，简单暴力。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Difficulty-Medium&quot;&gt;&lt;a href=&quot;#Difficulty-Medium&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Medium&quot;&gt;&lt;/a&gt;Difficulty: Medium&lt;/h3&gt;&lt;h2 id=&quot;Por
+    
+    </summary>
+    
+      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
+    
+      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
 </feed>
