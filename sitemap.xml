@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yu-zhengyu.github.com/note/note/2015/12/28/2015-12-28-Bulb-Switcher/</loc>
+    <loc>http://yu-zhengyu.github.com/note/note/1991/08/08/hello-world/</loc>
     
-    <lastmod>2016-04-01T23:13:24.000Z</lastmod>
+    <lastmod>2016-04-01T23:20:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yu-zhengyu.github.com/note/note/2015/12/28/319.%20Bulb-Switcher/</loc>
+    
+    <lastmod>2016-04-01T23:18:05.000Z</lastmod>
     
   </url>
   
@@ -16,13 +23,6 @@
   </url>
   
   <url>
-    <loc>http://yu-zhengyu.github.com/note/reading/index.html</loc>
-    
-    <lastmod>2016-04-01T16:13:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yu-zhengyu.github.com/note/about/index.html</loc>
     
     <lastmod>2016-04-01T16:13:29.000Z</lastmod>
@@ -30,9 +30,9 @@
   </url>
   
   <url>
-    <loc>http://yu-zhengyu.github.com/note/note/2016/04/01/hello-world/</loc>
+    <loc>http://yu-zhengyu.github.com/note/reading/index.html</loc>
     
-    <lastmod>2016-04-01T15:56:03.000Z</lastmod>
+    <lastmod>2016-04-01T16:13:29.000Z</lastmod>
     
   </url>
   
