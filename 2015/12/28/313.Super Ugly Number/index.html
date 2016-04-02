@@ -7,7 +7,7 @@
 
     
 
-    <title>游戏 | 郑彧</title>
+    <title>313.Super Ugly Number | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="313.Super Ugly Number"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -187,30 +187,92 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/刷题/">刷题</a>
+
 
         
-            <a class="breadcrumb" href="/categories/游戏/">游戏</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>313.Super Ugly Number</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="indigo-link-context" datetime="2015-12-28T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2015/12/28/313.Super Ugly Number/">2015-12-28</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="http://yu-zhengyu.github.com/note/2016/01/05/关于仙剑奇侠传6的一些感想/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-01-05T07:23:10.000Z">2016-01-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                关于仙剑奇侠传6的一些感想
-            </a>
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
         
     </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Difficulty-Medium"><span class="section table-of-contents-text">Difficulty: Medium</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Porblem"><span class="section table-of-contents-text">Porblem</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Code"><span class="section table-of-contents-text">Code</span></a></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <h3 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty: Medium"></a>Difficulty: Medium</h3><h2 id="Porblem"><a href="#Porblem" class="headerlink" title="Porblem"></a>Porblem</h2><p>Write a program to find the nth super ugly number.</p>
+<p>Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k. For example, <figure class="highlight plain"><figcaption><span>2, 4, 7, 8, 13, 14, 16, 19, 26, 28, 32]``` is the sequence of the first 12 super ugly numbers given ```primes = [2, 7, 13, 19]``` of size 4.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">## Solution</span><br><span class="line"></span><br><span class="line">这个问题的解法其实和```Ugly NumberII```差不多，我们拿当factor是```[2, 3, 5]```来当例子。如果我们把这些丑陋数字列出来的话，我们能发现其中的规律：</span><br><span class="line"></span><br><span class="line">(1) 1×2, 2×2, 3×2, 4×2, 5×2, …</span><br><span class="line"></span><br><span class="line">(2) 1×3, 2×3, 3×3, 4×3, 5×3, …</span><br><span class="line"></span><br><span class="line">(3) 1×5, 2×5, 3×5, 4×5, 5×5, …</span><br><span class="line"></span><br><span class="line">所以，其实我们只要每一次对前一个丑陋数乘上相应的factor，然后从中取出最小的一个数就好。然后相应的下标+1. ```这里注意，如果有不止一个最小的数，那么所有数的下标都应该+1，在下做这题的时候就犯了这个错误，结果总会出现重复的数字。</span><br></pre></td></tr></table></figure></p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Vector;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int nthSuperUglyNumber(int n, int[] primes) &#123;</span><br><span class="line">        int size = primes.length;</span><br><span class="line">        int[] clist = new int[size];</span><br><span class="line">        int[] result = new int[n];</span><br><span class="line">        result[0] = 1;</span><br><span class="line">        for(int i = 1; i &lt; n; i++)&#123;</span><br><span class="line">            int minnum = Integer.MAX_VALUE;</span><br><span class="line">            Vector&lt;Integer&gt; templist = new Vector&lt;Integer&gt;();</span><br><span class="line">            for(int j = 0; j &lt; size; j++) &#123;</span><br><span class="line">                int temp = primes[j] * result[clist[j]];</span><br><span class="line">                templist.add(temp);</span><br><span class="line">                if(temp &lt; minnum) &#123;</span><br><span class="line">                    minnum = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            for(int p = 0; p &lt; templist.size(); p++)</span><br><span class="line">                if(templist.get(p) == minnum)</span><br><span class="line">                    clist[p]++;</span><br><span class="line">            result[i] = minnum;</span><br><span class="line">        &#125;</span><br><span class="line">        return result[n - 1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2015/12/28/313.Super Ugly Number/" data-title="313.Super Ugly Number" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2015/12/28/313.Super Ugly Number/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

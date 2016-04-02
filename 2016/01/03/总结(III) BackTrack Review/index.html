@@ -7,7 +7,7 @@
 
     
 
-    <title>游戏 | 郑彧</title>
+    <title>总结(III) BackTrack Review --- 回溯法题目总结 | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="总结(III) BackTrack Review --- 回溯法题目总结"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -187,30 +187,98 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
 
         
-            <a class="breadcrumb" href="/categories/游戏/">游戏</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>总结(III) BackTrack Review --- 回溯法题目总结</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="indigo-link-context" datetime="2016-01-03T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2016/01/03/总结(III) BackTrack Review/">2016-01-03</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="http://yu-zhengyu.github.com/note/2016/01/05/关于仙剑奇侠传6的一些感想/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-01-05T07:23:10.000Z">2016-01-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                关于仙剑奇侠传6的一些感想
-            </a>
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
         
     </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#78-Subsets：-Given-a-set-of-distinct-integers-nums-return-all-possible-subsets"><span class="section table-of-contents-text">78. Subsets： Given a set of distinct integers, nums, return all possible subsets.</span></a></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <p>这种题目出现的频率还是比较高的，一般如果遇到题目类似于：排列组合，有多少个子类，subset等等。基本上都是同一套路，有暴力求解的意思，就是一个一个试，但是试的策略有所不同。如果遇到是数字的排列的情况，需要在求解之前进行排序。<br><a id="more"></a></p>
+<hr>
+<h3 id="78-Subsets：-Given-a-set-of-distinct-integers-nums-return-all-possible-subsets"><a href="#78-Subsets：-Given-a-set-of-distinct-integers-nums-return-all-possible-subsets" class="headerlink" title="78. Subsets： Given a set of distinct integers, nums, return all possible subsets."></a>78. Subsets： Given a set of distinct integers, nums, return all possible subsets.</h3><p>For example：</p>
+<p>If nums = [1,2,3], a solution is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [1],</span><br><span class="line">  [2],</span><br><span class="line">  [1,2,3],</span><br><span class="line">  [1,3],</span><br><span class="line">  [2,3],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>这题是典型的用回溯法的题目，我当时用的是python做的。因为这题是求子集，所以注意一下空集也算进去。下面直接上代码。</p>
+<p>####code[python]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def subsets(self, nums):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: List[List[int]]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        result = []</span><br><span class="line">        nums.sort()</span><br><span class="line">        self.dfs(nums, 0, [], result)</span><br><span class="line">        return result</span><br><span class="line">        </span><br><span class="line">    def dfs(self, nums, index, temp, result):</span><br><span class="line">        result.append(temp)</span><br><span class="line">        for i in range(index, len(nums)):</span><br><span class="line">            self.dfs(nums, i + 1, temp + [nums[i]], result)</span><br></pre></td></tr></table></figure>
+<hr>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/01/03/总结(III) BackTrack Review/" data-title="总结(III) BackTrack Review --- 回溯法题目总结" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2016/01/03/总结(III) BackTrack Review/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

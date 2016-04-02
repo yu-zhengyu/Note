@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>N sum question review --- N sum 题目总结 | 郑彧</title>
+    <meta name="author" content="郑彧 Yu Zheng">
+    
+    <meta name="description" content="闲来无事，随便写写">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="N sum question review --- N sum 题目总结"/>
+    <meta property="og:site_name" content="郑彧"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="http://yu-zhengyu.github.com/note/favicon.png">
+    <link rel="alternate" href="http://yu-zhengyu.github.com/note/atom.xml" title="郑彧" type="application/atom+xml">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="green">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">郑彧</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/note" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/note/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/note/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            Reading
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/note/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav green darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">郑彧</p>
+                        <p class="desc">CMU 在读大渣一枚</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/note" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/note/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/note/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    Reading
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/note/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav green darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/游戏/">
+                    游戏 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/刷题/">
+                    刷题 <span class="right">5</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/总结/">
+                    总结 <span class="right">10</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper green">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>N sum question review --- N sum 题目总结</h1>
+    
+
+
+            </div>
+            <time class="indigo-link-context" datetime="2016-01-04T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2016/01/04/N-sum-question-review/">2016-01-04</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
+        
+    </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-Two-Sum"><span class="section table-of-contents-text">1. Two Sum</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#15-3Sum"><span class="section table-of-contents-text">15. 3Sum</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#16-3Sum-Closest"><span class="section table-of-contents-text">16. 3Sum Closest</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#18-4Sum"><span class="section table-of-contents-text">18. 4Sum</span></a></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <p>leetcode里面出了一系列的这种题目，分别是two sum，3 sum，3 sum closed，4 sum。 期中出了two sum是利用hashmap外，其他基本的套路都是差不多的，都是先固定一个数字，然后进行左右夹逼的。时间复杂度基本就是O(n^(N-1)), 期中 N 就是指由多少个sum。<br><a id="more"></a></p>
+<hr>
+<h3 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h3><p>用一个哈希表,存储每个数对应的下标，因为这个题目需要返回下标，所以我们之前说的方法，先排序，再固定，后夹逼的方法在这题不太方便。所以还是老实用hash，时间是O(n), 空间是O(n).</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int[] twoSum(int[] nums, int target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; a = new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        int[] result = new int[2];</span><br><span class="line">        for(int i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">            if(a.containsKey(target - nums[i])) &#123;</span><br><span class="line">                result[0] = a.get(target - nums[i]) + 1;</span><br><span class="line">                result[1] = i + 1;</span><br><span class="line">                return result;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">                a.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="15-3Sum"><a href="#15-3Sum" class="headerlink" title="15. 3Sum"></a>15. 3Sum</h3><p>这题可以用我们所说的那套固定-夹逼的方法了。注意这题需要去掉一些重复的结果。直接上代码了。</p>
+<p>PS: 找数字的时候注意去掉重复的。if-else的条件注意细节。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        if(nums.length &lt; 3)</span><br><span class="line">            return result;</span><br><span class="line">        for(int i = 0; i &lt; nums.length - 2; i++) &#123;</span><br><span class="line">            if(i &gt; 0 &amp;&amp; nums[i] == nums[i-1])</span><br><span class="line">                continue;</span><br><span class="line">            int begin = i + 1;</span><br><span class="line">            int end = nums.length - 1;</span><br><span class="line">            int fix = nums[i];</span><br><span class="line">            while(begin &lt; end) &#123;</span><br><span class="line">                if(nums[begin] + nums[end] + fix == 0) &#123;</span><br><span class="line">                    List&lt;Integer&gt; temp = new ArrayList&lt;Integer&gt;();</span><br><span class="line">                    temp.add(fix);</span><br><span class="line">                    temp.add(nums[begin]);</span><br><span class="line">                    temp.add(nums[end]);</span><br><span class="line">                    result.add(temp);</span><br><span class="line">                    while(begin &lt; end &amp;&amp; nums[begin] == nums[begin + 1])</span><br><span class="line">                        begin++;</span><br><span class="line">                    while(begin &lt; end &amp;&amp; nums[end] == nums[end - 1])</span><br><span class="line">                        end--;</span><br><span class="line">                    begin++;</span><br><span class="line">                    end--;</span><br><span class="line">                &#125;</span><br><span class="line">                else if(nums[begin] + nums[end] + fix &lt; 0)</span><br><span class="line">                    begin++;</span><br><span class="line">                else</span><br><span class="line">                    end--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="16-3Sum-Closest"><a href="#16-3Sum-Closest" class="headerlink" title="16. 3Sum Closest"></a>16. 3Sum Closest</h3><p>这题和上一题思路基本一样，改改条件就可以了。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public int threeSumClosest(int[] nums, int target) &#123;</span><br><span class="line">        int minDiff = Integer.MAX_VALUE;</span><br><span class="line">        int result = 0;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        </span><br><span class="line">        for(int a = 0; a &lt; nums.length - 2; a++) &#123;</span><br><span class="line">            int b = a + 1;</span><br><span class="line">            int c = nums.length - 1;</span><br><span class="line">            </span><br><span class="line">            while(b &lt; c) &#123;</span><br><span class="line">                int gap = Math.abs(target - (nums[a] + nums[b] + nums[c]));</span><br><span class="line">                if(gap &lt; minDiff) &#123;</span><br><span class="line">                    minDiff = gap;</span><br><span class="line">                    result = nums[a] + nums[b] + nums[c];</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                if(nums[a] + nums[b] + nums[c] &lt; target)</span><br><span class="line">                    b++;</span><br><span class="line">                else</span><br><span class="line">                    c--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="18-4Sum"><a href="#18-4Sum" class="headerlink" title="18. 4Sum"></a>18. 4Sum</h3><p>这题如果用排序加左右夹逼，时间是O(n^3)。有人说会超时，但是我的好像没问题。如果超时的话，可以尝试采用一个hash来做缓冲，每两个数字组成一个pair，这样的预处理就时间是O(n^2), 然后就是和2 sum的做法差不多。我这题没这样写，把别人的代码贴上学习一下：</p>
+<p>####code[C++]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; result;</span><br><span class="line">        if (nums.size() &lt; 4) return result;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line"></span><br><span class="line">        unordered_multimap&lt;int, pair&lt;int, int&gt;&gt; cache;</span><br><span class="line">        for (int i = 0; i + 1 &lt; nums.size(); ++i)</span><br><span class="line">            for (int j = i + 1; j &lt; nums.size(); ++j)</span><br><span class="line">                cache.insert(make_pair(nums[i] + nums[j], make_pair(i, j)));</span><br><span class="line"></span><br><span class="line">        for (auto i = cache.begin(); i != cache.end(); ++i) &#123;</span><br><span class="line">            int x = target - i-&gt;first;</span><br><span class="line">            auto range = cache.equal_range(x);</span><br><span class="line">            for (auto j = range.first; j != range.second; ++j) &#123;</span><br><span class="line">                auto a = i-&gt;second.first;</span><br><span class="line">                auto b = i-&gt;second.second;</span><br><span class="line">                auto c = j-&gt;second.first;</span><br><span class="line">                auto d = j-&gt;second.second;</span><br><span class="line">                if (a != c &amp;&amp; a != d &amp;&amp; b != c &amp;&amp; b != d) &#123;</span><br><span class="line">                    vector&lt;int&gt; vec = &#123; nums[a], nums[b], nums[c], nums[d] &#125;;</span><br><span class="line">                    sort(vec.begin(), vec.end());</span><br><span class="line">                    result.push_back(vec);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(result.begin(), result.end());</span><br><span class="line">        result.erase(unique(result.begin(), result.end()), result.end());</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>####code[java] – O(n^3)的版本</p>
+<p>这个还是用我们之前的理论来做。效果还行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; fourSum(int[] nums, int target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        if (nums.length &lt; 4) &#123;</span><br><span class="line">            return ans;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i = 0; i &lt; nums.length - 3; i++) &#123;</span><br><span class="line">            int j = i + 1; </span><br><span class="line">            if (i &gt; 0 &amp;&amp; nums[i] == nums[i-1])</span><br><span class="line">                continue;</span><br><span class="line">            while (j &lt; nums.length - 2) &#123;</span><br><span class="line">                int k = j + 1, h = nums.length - 1;</span><br><span class="line">                while (k &lt; h) &#123;</span><br><span class="line">                    if (nums[i] + nums[j] + nums[k] + nums[h] == target) &#123;</span><br><span class="line">                        List&lt;Integer&gt; li = new ArrayList&lt;&gt;(Arrays.asList(nums[i], nums[j], nums[k], nums[h]));</span><br><span class="line">                        ans.add(li);</span><br><span class="line">                        while (k &lt; nums.length - 1 &amp;&amp; nums[k] == nums[k+1]) k++;</span><br><span class="line">                        while (h &gt; k &amp;&amp; nums[h] == nums[h-1]) h--;</span><br><span class="line">                        h--; k++;</span><br><span class="line">                    &#125; else if (nums[i] + nums[j] + nums[k] + nums[h] &gt; target) &#123;</span><br><span class="line">                        h--;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        k++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                while (j &lt; nums.length -2 &amp;&amp; nums[j] == nums[j+1]) j++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/01/04/N-sum-question-review/" data-title="N sum question review --- N sum 题目总结" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2016/01/04/N-sum-question-review/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large indigo">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect cyan" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse light-green"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer green darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="http://weibo.com/zhengyudejia" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/yu-zhengyu" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">Links</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright indigo-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+</div>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/jquery-2.1.1.min.js"></script>
+<script src="http://yu-zhengyu.github.com/note/js/materialize.min.js"></script>
+
+<script>
+(function($) {
+    $(document).ready(function() {
+        // 隐藏禁用javascript（针对微信内置浏览器）的提示
+        $('.noscript').hide();
+
+        // 图片缩放效果
+        var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+        // 给图片加上点击放大效果（materialbox插件）
+        $imgs.addClass('materialboxed')
+            .each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+        // 优化表格的显示
+        $('table').addClass('responsive-table striped bordered');
+
+        // 首页幻灯片
+        $('.slider').slider({
+            indicators: true,
+            full_width: true,
+            interval: 8000
+        });
+
+        $(".button-collapse").sideNav();
+        $(".category-menu").sideNav();
+
+        // 针对gallery post
+        $('.carousel').carousel({
+            full_width: true
+        });
+        $('.carousel-control.prev').click(function() {
+            $('.carousel').carousel('prev');
+        });
+        $('.carousel-control.next').click(function() {
+            $('.carousel').carousel('next');
+        });
+
+        // 文章目录
+        $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+        // 修正文章目录的left-border颜色
+        var color = $('.table-of-contents-text').css('color');
+        $('.table-of-contents-link').css('border-left-color', color);
+
+        // 针对移动端做的优化：FAB按钮点击一下收回
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('.fixed-action-btn').addClass('click-to-toggle');
+        }
+        // 回到顶部
+        $('.btn-return-top').click(function() {
+            $('body, html').animate({
+                scrollTop: 0
+            }, 500);
+        });
+
+        // 重置读书页面的Tab标签页的颜色
+        $('li.tab a').hover(function() {
+            $(this).toggleClass('text-lighten-4');
+        });
+        $('.indicator').addClass('indigo lighten-2');
+
+        
+        // 添加new标签
+        $('.menu-reading,.menu-about').append('<span class="new badge indigo"></span>');
+        
+    });
+})(jQuery);
+</script>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -7,7 +7,7 @@
 
     
 
-    <title>319.Bulb Switcher | 郑彧</title>
+    <title>Best-time-buy-and-sell-stock --- leetcode 买卖股票问题 | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="319.Bulb Switcher"/>
+    <meta property="og:title" content="Best-time-buy-and-sell-stock --- leetcode 买卖股票问题"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -194,7 +194,7 @@
             
     
     
-    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/刷题/">刷题</a>
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
 
 
         
@@ -211,12 +211,12 @@
             <div class="article-title">
                 
     
-        <h1>319.Bulb Switcher</h1>
+        <h1>Best-time-buy-and-sell-stock --- leetcode 买卖股票问题</h1>
     
 
 
             </div>
-            <time class="indigo-link-context" datetime="2015-12-28T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2015/12/28/319. Bulb-Switcher/">2015-12-28</a></time>
+            <time class="indigo-link-context" datetime="2016-01-24T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2016/01/24/leetcode 买卖股票问题/">2016-01-24</a></time>
 
             
     <div class="tags-row">
@@ -229,20 +229,21 @@
 
 
             <div class="toc indigo-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Difficulty-Medium"><span class="section table-of-contents-text">Difficulty: Medium</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Porblem"><span class="section table-of-contents-text">Porblem</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Solution"><span class="section table-of-contents-text">Solution</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Code"><span class="section table-of-contents-text">Code</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#level-1"><span class="section table-of-contents-text">level 1</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#121-Best-Time-to-Buy-and-Sell-Stock"><span class="section table-of-contents-text">121. Best Time to Buy and Sell Stock</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#level-2"><span class="section table-of-contents-text">level 2</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#122-Best-Time-to-Buy-and-Sell-Stock-II"><span class="section table-of-contents-text">122. Best Time to Buy and Sell Stock II</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#level-3"><span class="section table-of-contents-text">level 3</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#122-Best-Time-to-Buy-and-Sell-Stock-III"><span class="section table-of-contents-text">122. Best Time to Buy and Sell Stock III</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#level-4"><span class="section table-of-contents-text">level 4</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#188-Best-Time-to-Buy-and-Sell-Stock-IV"><span class="section table-of-contents-text">188. Best Time to Buy and Sell Stock IV</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry indigo-link-context">
-                <h3 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty: Medium"></a>Difficulty: Medium</h3><h2 id="Porblem"><a href="#Porblem" class="headerlink" title="Porblem"></a>Porblem</h2><p>There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.<br><a id="more"></a><br>Example:</p>
-<p>Given n = 3. </p>
-<p>At first, the three bulbs are [off, off, off].</p>
-<p>After first round, the three bulbs are [on, on, on].</p>
-<p>After second round, the three bulbs are [on, off, on].</p>
-<p>After third round, the three bulbs are [on, off, off]. </p>
-<p>So you should return 1, because there is only one bulb is on.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这个问题其实就是一个数学问题，一个一个试，找出规律后你就会发现其实最后只会剩下平方数下标的灯泡会亮，例如：1，2，4，9，16…… 所以这一题就很简单了，直接对n开方，取整就是最后的结果，简单暴力。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public int bulbSwitch(int n) &#123;</span><br><span class="line">        return (int)Math.sqrt(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h1><h2 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121. Best Time to Buy and Sell Stock"></a>121. Best Time to Buy and Sell Stock</h2><p>这题是第一层，因为只能买卖一次，维护一个全局最小值和一个全局最大值就好，最后返回一个全局最优解即可。</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        if(prices.length == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        int minmoney = prices[0];</span><br><span class="line">        int maxmonty = 0;</span><br><span class="line">        for (int i = 1; i &lt; prices.length; i++) &#123;</span><br><span class="line">            if(prices[i] - minmoney &gt; 0) &#123;</span><br><span class="line">                if(prices[i] - minmoney &gt; maxmonty)</span><br><span class="line">                    maxmonty = prices[i] - minmoney;</span><br><span class="line">            &#125;</span><br><span class="line">            if(prices[i] &lt; minmoney)</span><br><span class="line">                minmoney = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        return maxmonty;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h1><h2 id="122-Best-Time-to-Buy-and-Sell-Stock-II"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="122. Best Time to Buy and Sell Stock II"></a>122. Best Time to Buy and Sell Stock II</h2><p>这题也是比较简单的，因为可以随买随卖，所以只要后一天的价格比前一天的高，就卖就好，我觉得比 level I 还简单。</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        int total = 0;</span><br><span class="line">        for(int i = 0; i &lt; prices.length - 1; i++) &#123;</span><br><span class="line">            if(prices[i+1] - prices[i] &gt; 0)</span><br><span class="line">                total += (prices[i+1] - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return total;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="level-3"><a href="#level-3" class="headerlink" title="level 3"></a>level 3</h1><h2 id="122-Best-Time-to-Buy-and-Sell-Stock-III"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-III" class="headerlink" title="122. Best Time to Buy and Sell Stock III"></a>122. Best Time to Buy and Sell Stock III</h2><p>这题还是需要技巧的，因为只能够买卖两次，而且买另一个之前需要卖掉前一个。所以这题我们没办法只用O(1)的空间了。这题而且需要两个数组，一个数组表示前一个 stock 买卖的情况，另一个数组表示后一个 stock 买卖的情况。最后再遍历两个数组，求两个数组相加后最大 profit。</p>
+<p>第一个数组就和 level I 一样，把当前的全局最优解放到对应下标的数组就好。</p>
+<p>第二个数组注意下标，因为进行的第二次交易，所以我们要从后往前遍历，记录下全局最大的 price 和到当前坐标下的全局最优解。</p>
+<p>最后遍历两个数组，每一个下标的结果都加起来即可。</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author zhengyu</span><br><span class="line"> * @date 2016年1月24日</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    /**</span><br><span class="line">     * @param args</span><br><span class="line">     */</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        int[] test = &#123;1,2,4&#125;;</span><br><span class="line">        int[] test2 = &#123;4,6,3,5,6,7,8,3,4,5,3,5,6,2,5,8&#125;;</span><br><span class="line">        System.out.println(maxProfit(test));</span><br><span class="line">        System.out.println(maxProfit(test2));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static int maxProfit(int[] prices) &#123;</span><br><span class="line">        if(prices.length == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        int len = prices.length;</span><br><span class="line">        int[] first = new int[len];</span><br><span class="line">        int[] second = new int[len];</span><br><span class="line">        </span><br><span class="line">        int minprofit = prices[0];</span><br><span class="line">        int maxprofit = 0;</span><br><span class="line">        for(int i = 1; i &lt; len; i++) &#123;</span><br><span class="line">            maxprofit = Math.max(maxprofit, prices[i] - minprofit);</span><br><span class="line">            first[i] = maxprofit;</span><br><span class="line">            minprofit = Math.min(minprofit, prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int maxprice = prices[len - 1];</span><br><span class="line">        maxprofit = 0;</span><br><span class="line">        int index = len - 2;</span><br><span class="line">        for(int i = len - 2; i &gt; -1; i--) &#123;</span><br><span class="line">            maxprofit = Math.max(maxprofit, maxprice - prices[i]);</span><br><span class="line">            second[index--] = maxprofit;</span><br><span class="line">            maxprice = Math.max(maxprice, prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int result = 0;</span><br><span class="line">        for(int i = 0; i &lt; len; i++) </span><br><span class="line">            result = Math.max(first[i] + second[i], result);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="level-4"><a href="#level-4" class="headerlink" title="level 4"></a>level 4</h1><h2 id="188-Best-Time-to-Buy-and-Sell-Stock-IV"><a href="#188-Best-Time-to-Buy-and-Sell-Stock-IV" class="headerlink" title="188. Best Time to Buy and Sell Stock IV"></a>188. Best Time to Buy and Sell Stock IV</h2><p>这个应该是这个系列最难的题目了。还是前面的条件，但是这次能买卖多少次是用户自己输入的。</p>
 
             </div>
         </div>
@@ -256,7 +257,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2015/12/28/319. Bulb-Switcher/" data-title="319.Bulb Switcher" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2015/12/28/319. Bulb-Switcher/"></div>
+                <div class="ds-thread" data-thread-key="2016/01/24/leetcode 买卖股票问题/" data-title="Best-time-buy-and-sell-stock --- leetcode 买卖股票问题" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2016/01/24/leetcode 买卖股票问题/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));

@@ -1,0 +1,476 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>总结(IX) Java Interview --- java面试二三事 | 郑彧</title>
+    <meta name="author" content="郑彧 Yu Zheng">
+    
+    <meta name="description" content="闲来无事，随便写写">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="总结(IX) Java Interview --- java面试二三事"/>
+    <meta property="og:site_name" content="郑彧"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="http://yu-zhengyu.github.com/note/favicon.png">
+    <link rel="alternate" href="http://yu-zhengyu.github.com/note/atom.xml" title="郑彧" type="application/atom+xml">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="green">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">郑彧</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/note" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/note/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/note/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            Reading
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/note/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav green darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">郑彧</p>
+                        <p class="desc">CMU 在读大渣一枚</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/note" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/note/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/note/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    Reading
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/note/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav green darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/游戏/">
+                    游戏 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/刷题/">
+                    刷题 <span class="right">5</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/总结/">
+                    总结 <span class="right">10</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper green">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>总结(IX) Java Interview --- java面试二三事</h1>
+    
+
+
+            </div>
+            <time class="indigo-link-context" datetime="2016-01-06T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2016/01/06/总结(IX) Java Interview/">2016-01-06</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
+        
+    </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#10-java-HashMap-有什么特点"><span class="section table-of-contents-text">10. java HashMap, 有什么特点</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#11-HashMap-的-get-和-put-函数是如何工作的"><span class="section table-of-contents-text">11. HashMap 的 get 和 put 函数是如何工作的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#12-Hashcode-函数一般是怎么计算的"><span class="section table-of-contents-text">12. Hashcode 函数一般是怎么计算的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#13-为什么要创建私有的构造函数"><span class="section table-of-contents-text">13. 为什么要创建私有的构造函数</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-6"><a class="section table-of-contents-link" href="#关于-singleton-design"><span class="section table-of-contents-text">关于 singleton design</span></a></li><li class="section table-of-contents-item section table-of-contents-level-6"><a class="section table-of-contents-link" href="#假设我们希望上面的-singleton-实例只有在被需要的时候再创建从而节省一些资源，我们应该怎么做。"><span class="section table-of-contents-text">假设我们希望上面的 singleton 实例只有在被需要的时候再创建从而节省一些资源，我们应该怎么做。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-6"><a class="section table-of-contents-link" href="#在设计-singleton-的时候，如何保证线程安全？？"><span class="section table-of-contents-text">在设计 singleton 的时候，如何保证线程安全？？</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#14-finally-中的代码会在-return-之后执行么？"><span class="section table-of-contents-text">14. finally 中的代码会在 return 之后执行么？</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#用最少的code写一个函数-要求会把栈用光"><span class="section table-of-contents-text">用最少的code写一个函数,要求会把栈用光.</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#follow-up-如果是用完堆里面的函数呢？？"><span class="section table-of-contents-text">follow up: 如果是用完堆里面的函数呢？？</span></a>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <p>自己本来是个python的程序员,然而来了CMU后都被带成java程序员了,没办法了,现在面试也以Java为主,不过其实各个语言也是相通的.那么接下来我就收集一些JAVA面试时候会问的奇奇怪怪的问题吧.<br><a id="more"></a></p>
+<p>##[基础知识篇]</p>
+<p>#####1. 什么是JVM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JVM 就是java虚拟机.JVM 会把Java code编译为byte code, 然后执行这些byte code.所有系统都能够安装JAVA虚拟机,这也体现了Java程序的多平台执行优势.</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####2. OOPS 的重要概念.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">OOPS就是面向对象编程,主要包括以下4个概念:</span><br><span class="line">1. Abstraction 抽象性</span><br><span class="line">2. Polymorphism 多态</span><br><span class="line">3. Inheritance 继承</span><br><span class="line">4. Encapsulation 封装</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####3. Overloadding VS Overriding<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* Overloadding 发生在compile阶段,Overriding 发生在runtime阶段.</span><br><span class="line">* Overloading是在同一个类中写同一个函数,只是参数的类型不同.而overriding一般会在子类中出现,并且重写的时候函数名字和参数类型是一样的.</span><br><span class="line">* 返回类型,overloading 是可以自由定义,但是Overriding就必须和继承的父类保持一致.</span><br><span class="line">* 你可以overloading一个static 类, 但是不能overriding一个static类.</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####4. static VS instance<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static method是一个类级别的方法,你可以直接调用它.但是instance方法是一个对象级别的方法,你必须首先创建一个引用指向它,然后再进行调用.</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####5. Stringbuilder, Stringbuffer, string 的区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* String是immutable,不可改变的.Stringbuilder 和 Stringbuffer 都是mutable的.</span><br><span class="line">* Stringbuffer 是 synchronized,Stringbuilder 不是</span><br><span class="line">* Stringbuilder 比 Stringbuffer 快.</span><br><span class="line">* StringBuffer线程安全,且保证同步.Stringbuilder不保证线程同步.</span><br><span class="line">* String也是线程安全的,因为它不能够改变.</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####6. Java是值传递还是引用传递<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当写函数的过程中,如果参数是基本类,如int或者double,那么我们会发现java是值传递.但是,在Java中对象作为参数传递时,是把对象在内存中的地址拷贝了一份传给了参数.所以,总体来说,都是pass by value.</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####7. Searialziation 和 Desearialziation.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Searialziation 是将对象转化为数据流,方便对象能够在网络中进行传递.Desearialziation当然就是讲流转为对象了.</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####8. final, finally, and finalize<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* Final 能够修饰变量,方法和类.修饰变量,说明该变量不能再改变.修饰method,说明该方法不能被overridden.修饰class说明该类不能够被继承.</span><br><span class="line"></span><br><span class="line">* finally是用在异常处理的情况.代码如果被写入了finally的块中,不管该段代码是否抛出异常,到最后finally块中的代码都必须执行.这个修饰一般用在关闭网络流,数据库或者输入输出流一类的处理.</span><br><span class="line"></span><br><span class="line">* finalize是用在垃圾回收的过程.finalize会被垃圾回收调用,会在对象被抛弃之前清理所有的活动.java提供finalize()方法,垃圾回收器准备释放内存的时候,会先调用finalize().</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#####9. java如何创建多线程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">一般在java中,创建多线程有两种方法:</span><br><span class="line">* 继承Thread类;</span><br><span class="line">重写run() 函数,然后调用start()函数.</span><br><span class="line"></span><br><span class="line">public class simpleThread extends Thread &#123;</span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// 写上你的task</span><br><span class="line">		System.out.println(&quot;Hello&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class simple &#123;</span><br><span class="line">	public static void main(String[] agrs) &#123;</span><br><span class="line">		simpleThread t = new simpleThread();</span><br><span class="line">		t.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">* 实现Runnable接口.</span><br><span class="line">方法和上面差不多,不过是实现接口,重写的函数还是run方法.</span><br><span class="line"></span><br><span class="line">public class simpleThread implements Runnable &#123;</span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// 写上你的task</span><br><span class="line">		System.out.println(&quot;Hello&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class simple &#123;</span><br><span class="line">	public static void main(String[] agrs) &#123;</span><br><span class="line">		Thread t = new Thread( new simpleThread() );</span><br><span class="line">		t.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="10-java-HashMap-有什么特点"><a href="#10-java-HashMap-有什么特点" class="headerlink" title="10. java HashMap, 有什么特点"></a>10. java HashMap, 有什么特点</h5><p>是基于Map接口的实现，存储键值对时，它可以接收null的键值，是非同步的，HashMap存储着Entry(hash, key, value, next)对象。</p>
+<h5 id="11-HashMap-的-get-和-put-函数是如何工作的"><a href="#11-HashMap-的-get-和-put-函数是如何工作的" class="headerlink" title="11. HashMap 的 get 和 put 函数是如何工作的"></a>11. HashMap 的 get 和 put 函数是如何工作的</h5><p>当我们使用 put 函数的时候，我们会把 Key 和 value 传入，hashmap 会使用 hashcood 函数计算出 key 的哈希值，通过计算出的哈希值找到对应的 bucket，如果当前的 bucket 已经满了，HashMap会根据情况对容量进行扩容，一般是当前 capacity 的两倍。使用 get 函数的时候，传入 key 的值，计算出对应的哈希值，找到相应的 bucket，然后在 bucket 中使用 equals 函数找到相应的key。如果出现碰撞的情况，一般会使用链表来解决冲突。</p>
+<h5 id="12-Hashcode-函数一般是怎么计算的"><a href="#12-Hashcode-函数一般是怎么计算的" class="headerlink" title="12. Hashcode 函数一般是怎么计算的"></a>12. Hashcode 函数一般是怎么计算的</h5><p>在 java1.8中，一般是将key 的高16位异或上低16位获得的。</p>
+<h5 id="13-为什么要创建私有的构造函数"><a href="#13-为什么要创建私有的构造函数" class="headerlink" title="13. 为什么要创建私有的构造函数"></a>13. 为什么要创建私有的构造函数</h5><p>私有构造函数和一般的私有函数没有区别，也是只能够类内部进行调用，外部无法进行访问。创建私有构造函数的原因可能有两个：一，是你不想让除类之外的其他类构造这个类。二是你只希望该对象在类的内部构造。</p>
+<p>另外，私有构造函数一般用在singleton design pattern中。这也是开发人员使用私有构造函数的又一个原因。</p>
+<h6 id="关于-singleton-design"><a href="#关于-singleton-design" class="headerlink" title="关于 singleton design"></a>关于 singleton design</h6><p>设计 singleton 的关键就是不能让其他类随便构造该类对象。那么，我们唯一能做的就是控制该类的构造函数。将构造函数变为私有是一个关键的步骤。 下面是一个 singleton 设计的例子。</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 以 singleton 的模式实现该类</span><br><span class="line">public class Logging &#123;</span><br><span class="line">	// 创建一个实例，有且只有一个</span><br><span class="line">	private static final Logging singletonInstance = new Logging();</span><br><span class="line"></span><br><span class="line">	// 私有构造函数</span><br><span class="line">	private Logging() &#123;&#125;</span><br><span class="line"></span><br><span class="line">	// 返回实例，保证了有且只有一个实例</span><br><span class="line">	public static Logging getSingleton() &#123;</span><br><span class="line">		return singletonInstance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h6 id="假设我们希望上面的-singleton-实例只有在被需要的时候再创建从而节省一些资源，我们应该怎么做。"><a href="#假设我们希望上面的-singleton-实例只有在被需要的时候再创建从而节省一些资源，我们应该怎么做。" class="headerlink" title="假设我们希望上面的 singleton 实例只有在被需要的时候再创建从而节省一些资源，我们应该怎么做。"></a>假设我们希望上面的 singleton 实例只有在被需要的时候再创建从而节省一些资源，我们应该怎么做。</h6><p>这题还是承接上面的题目来说的。其实只要对 getSingleton 函数稍微修改一下即可</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">private static Logging singletonInstance = null;</span><br><span class="line">public static Logging getSingleton() &#123;</span><br><span class="line">	if(singletonInstance == null)</span><br><span class="line">		singletonInstance = new Loging();</span><br><span class="line">	reutrn singletonInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h6 id="在设计-singleton-的时候，如何保证线程安全？？"><a href="#在设计-singleton-的时候，如何保证线程安全？？" class="headerlink" title="在设计 singleton 的时候，如何保证线程安全？？"></a>在设计 singleton 的时候，如何保证线程安全？？</h6><p>这个题也是承接上面的两个问题的。首先明白，为什么要保证线程安全。首先，上面的例子, 我们这样看视乎并没有什么问题。这是因为都是基于单线程来看的。假设我们现在有多个线程，并且这些线程同时调用上面的 getsingleton 函数来对实例进行初始化，因为同一时间满足了条件，结果我们也创建了两个或以上的实例。那么怎么解决这个问题。其实，java 也已经替我们想好了，只要在函数前面加上 synchronized 的关键字就可以了。</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">private static Logging singletonInstance = null;</span><br><span class="line">public synchronized static Logging getSingleton() &#123;</span><br><span class="line">	if(singletonInstance == null)</span><br><span class="line">		singletonInstance = new Loging();</span><br><span class="line">	reutrn singletonInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>synchronized 会保证该函数只有一个线程能够进行访问，从而避免了上述冲突情况的出现。</p>
+<h5 id="14-finally-中的代码会在-return-之后执行么？"><a href="#14-finally-中的代码会在-return-之后执行么？" class="headerlink" title="14. finally 中的代码会在 return 之后执行么？"></a>14. finally 中的代码会在 return 之后执行么？</h5><p>这个题目也是有趣。一般来说，一个函数如果调用了 return，基本上说明该函数已经停止了，在这之后的代码也不会执行，编译器其实也会提示错误，然而下面的例子能够说明一些问题：</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class SomeClass</span><br><span class="line">&#123;</span><br><span class="line">    public static void main(String args[]) </span><br><span class="line">    &#123; </span><br><span class="line">        // call the proveIt method and print the return value</span><br><span class="line">    	System.out.println(SomeClass.proveIt()); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static int proveIt()</span><br><span class="line">    &#123;</span><br><span class="line">    	try &#123;  </span><br><span class="line">            	return 1;  </span><br><span class="line">    	&#125;  </span><br><span class="line">    	finally &#123;  </span><br><span class="line">    	    System.out.println(&quot;finally block is run </span><br><span class="line">            before method returns.&quot;);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后，该段代码的输出为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">finally block is run before method returns.</span><br></pre></td></tr></table></figure>
+<p>我们发现了，return 后的代码不但执行了，还是在 return 之前。</p>
+<p>‘’‘当然有例外，假如是调用 System.exit(), 那么final 块的代码就不会调用’‘’</p>
+<p>##[code 篇]</p>
+<h3 id="用最少的code写一个函数-要求会把栈用光"><a href="#用最少的code写一个函数-要求会把栈用光" class="headerlink" title="用最少的code写一个函数,要求会把栈用光."></a>用最少的code写一个函数,要求会把栈用光.</h3><p>当时第一次遇到这种问题,我本身吓了一跳.不过其实这题是考你基础知识,就是栈和堆的问题.一般来收,所有的对象都是存放到堆中的,而指向对象的reference是存在栈里面的,函数调用,一开始也会放进栈.那么,用光栈最快的方法就是进行递归调用.下面上代码</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Useupstack &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		help();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static help() &#123;</span><br><span class="line">		help();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="follow-up-如果是用完堆里面的函数呢？？"><a href="#follow-up-如果是用完堆里面的函数呢？？" class="headerlink" title="follow up: 如果是用完堆里面的函数呢？？"></a>follow up: 如果是用完堆里面的函数呢？？</h4><p>这个也是基础知识的考察,那么,因为java里面不方便对内存直接调用,所以这里我们用C++来进行解答.<br>我们知道,C++可以任意对内存进行控制,那么我们就可以用C++的malloc函数来进行内存操作.</p>
+<p>####code[C++]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">void main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">    while(1)</span><br><span class="line">    &#123;</span><br><span class="line">        malloc(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/01/06/总结(IX) Java Interview/" data-title="总结(IX) Java Interview --- java面试二三事" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2016/01/06/总结(IX) Java Interview/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large indigo">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect cyan" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse light-green"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer green darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="http://weibo.com/zhengyudejia" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/yu-zhengyu" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">Links</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright indigo-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+</div>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/jquery-2.1.1.min.js"></script>
+<script src="http://yu-zhengyu.github.com/note/js/materialize.min.js"></script>
+
+<script>
+(function($) {
+    $(document).ready(function() {
+        // 隐藏禁用javascript（针对微信内置浏览器）的提示
+        $('.noscript').hide();
+
+        // 图片缩放效果
+        var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+        // 给图片加上点击放大效果（materialbox插件）
+        $imgs.addClass('materialboxed')
+            .each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+        // 优化表格的显示
+        $('table').addClass('responsive-table striped bordered');
+
+        // 首页幻灯片
+        $('.slider').slider({
+            indicators: true,
+            full_width: true,
+            interval: 8000
+        });
+
+        $(".button-collapse").sideNav();
+        $(".category-menu").sideNav();
+
+        // 针对gallery post
+        $('.carousel').carousel({
+            full_width: true
+        });
+        $('.carousel-control.prev').click(function() {
+            $('.carousel').carousel('prev');
+        });
+        $('.carousel-control.next').click(function() {
+            $('.carousel').carousel('next');
+        });
+
+        // 文章目录
+        $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+        // 修正文章目录的left-border颜色
+        var color = $('.table-of-contents-text').css('color');
+        $('.table-of-contents-link').css('border-left-color', color);
+
+        // 针对移动端做的优化：FAB按钮点击一下收回
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('.fixed-action-btn').addClass('click-to-toggle');
+        }
+        // 回到顶部
+        $('.btn-return-top').click(function() {
+            $('body, html').animate({
+                scrollTop: 0
+            }, 500);
+        });
+
+        // 重置读书页面的Tab标签页的颜色
+        $('li.tab a').hover(function() {
+            $(this).toggleClass('text-lighten-4');
+        });
+        $('.indicator').addClass('indigo lighten-2');
+
+        
+        // 添加new标签
+        $('.menu-reading,.menu-about').append('<span class="new badge indigo"></span>');
+        
+    });
+})(jQuery);
+</script>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

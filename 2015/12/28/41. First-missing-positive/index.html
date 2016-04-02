@@ -7,7 +7,7 @@
 
     
 
-    <title>游戏 | 郑彧</title>
+    <title>41.First Missing Positive | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="41.First Missing Positive"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -187,30 +187,101 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/刷题/">刷题</a>
+
 
         
-            <a class="breadcrumb" href="/categories/游戏/">游戏</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>41.First Missing Positive</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="indigo-link-context" datetime="2015-12-28T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2015/12/28/41. First-missing-positive/">2015-12-28</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="http://yu-zhengyu.github.com/note/2016/01/05/关于仙剑奇侠传6的一些感想/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-01-05T07:23:10.000Z">2016-01-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                关于仙剑奇侠传6的一些感想
-            </a>
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
         
     </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Difficulty-Hard"><span class="section table-of-contents-text">Difficulty: Hard</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Porblem"><span class="section table-of-contents-text">Porblem</span></a>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <h3 id="Difficulty-Hard"><a href="#Difficulty-Hard" class="headerlink" title="Difficulty: Hard"></a>Difficulty: Hard</h3><h2 id="Porblem"><a href="#Porblem" class="headerlink" title="Porblem"></a>Porblem</h2><p>Given an unsorted integer array, find the first missing positive integer.<br><a id="more"></a><br>For example,</p>
+<p>Given <figure class="highlight plain"><figcaption><span>return ```3```,</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">and ```[3,4,-1,1]``` return ```2```.</span><br><span class="line"></span><br><span class="line">Your algorithm should run in O(n) time and uses constant space.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Solution</span><br><span class="line"></span><br><span class="line">这个题目我其实不是很理解，基本原理就是桶排序。每当 ```A[i]!= i+1``` 的时候,就把```A[i] 与 A[A[i]-1] 交换```，一直到当```A[i] == A[A[i]-1]```。这里借助网上一个朋友的图来说明这个过程。```这里尤其注意一下两个数字交换的位置。我这里犯了N次错误。因为当你将nums[i]改变的时候，如果不事先保存下标，就很容易出错。所以保险的交换做法应该就像我这样做。如果你有更好的做法，可以提出</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://yu-zhengyu.github.io/static/img/review/41_1.png" width="400"></p>
+<p>这个题目我其实不是很理解，基本原理就是桶排序。每当 <figure class="highlight plain"><figcaption><span>i+1``` 的时候,就把```A[i] 与 A[A[i]-1] 交换```，一直到当```A[i] == A[A[i]-1]```。这里借助网上一个朋友的图来说明这个过程。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这个题目现在终于比较理解了，其实就是把具体的数字放在指定的坐标就好。如果index为1的是不是在数组的 index 相对的位置上，如果不是，交换，然后一直交换到超出了该数组的范围或者已经交换到对了的情况。不知道这种算不算桶排序的思想。我觉得桶排序说得就太让人迷惑了。不如说，看数组中的数字和数组的下标是否相等即可。</span><br><span class="line"></span><br><span class="line">### Code[java]</span><br></pre></td></tr></table></figure></p>
+<p>public class Solution {<br>    public int firstMissingPositive(int[] nums) {<br>        int i = 0;<br>        int n = nums.length;<br>        while(i &lt; n) {<br>            if(nums[i] &gt; 0 &amp;&amp; nums[i] &lt;= n &amp;&amp; nums[i] != i + 1 &amp;&amp; nums[i] != nums[nums[i]- 1]) {<br>                int temp = nums[i];<br>                int temp2 = nums[nums[i]- 1];<br>                int tempindex = i;<br>                int tempindex2 = nums[i]- 1;<br>                nums[tempindex2] = temp;<br>                nums[tempindex] = temp2;<br>            }<br>            else<br>                i++;<br>        }</p>
+<pre><code>    for(int j = 0; j &lt; n; j++) {
+        if(nums[j] != j + 1)
+            return j + 1;
+    }
+    return n + 1;
+}
+</code></pre><p>}<br>```</p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2015/12/28/41. First-missing-positive/" data-title="41.First Missing Positive" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2015/12/28/41. First-missing-positive/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

@@ -7,7 +7,7 @@
 
     
 
-    <title>游戏 | 郑彧</title>
+    <title>62.Unique Paths | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="62.Unique Paths"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -187,30 +187,95 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/刷题/">刷题</a>
+
 
         
-            <a class="breadcrumb" href="/categories/游戏/">游戏</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>62.Unique Paths</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="indigo-link-context" datetime="2015-12-28T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2015/12/28/62.Unique Paths/">2015-12-28</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="http://yu-zhengyu.github.com/note/2016/01/05/关于仙剑奇侠传6的一些感想/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-01-05T07:23:10.000Z">2016-01-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                关于仙剑奇侠传6的一些感想
-            </a>
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
         
     </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Difficulty-Medium"><span class="section table-of-contents-text">Difficulty: Medium</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Porblem"><span class="section table-of-contents-text">Porblem</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Solution"><span class="section table-of-contents-text">Solution</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Code-python"><span class="section table-of-contents-text">Code[python]</span></a></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <h3 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty: Medium"></a>Difficulty: Medium</h3><h2 id="Porblem"><a href="#Porblem" class="headerlink" title="Porblem"></a>Porblem</h2><p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
+<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
+<p>How many possible unique paths are there?<br><a id="more"></a></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这题比较简单，也是我比较后悔的一题，因为人生中第一次面试就是面试这题。这题其实就是最简单的DP做法即可。采用缓存备忘的形式避免重复计算。当然也可以用自底向上的方法，转移方程就是：当前坐标的path数 = 上坐标的path数 + 左坐标的path数。</p>
+<p>公式：path = f[m][n-1] + f[m-1][n].</p>
+<h3 id="Code-python"><a href="#Code-python" class="headerlink" title="Code[python]"></a>Code[python]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def uniquePaths(self, m, n):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type m: int</span><br><span class="line">        :type n: int</span><br><span class="line">        :rtype: int</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        tt = [[-1 for i in range(0, n+1)] for j in range(0, m+1)]</span><br><span class="line">        temp = self.conunt(m, n, tt)</span><br><span class="line">        return temp</span><br><span class="line">        </span><br><span class="line">    def conunt(self, m, n, tt):</span><br><span class="line">        if tt[m][n] != -1:</span><br><span class="line">            return tt[m][n]</span><br><span class="line">        if m == 1 or n == 1:</span><br><span class="line">            return 1</span><br><span class="line">        else:</span><br><span class="line">            tt[m][n] = self.conunt(m - 1, n, tt) + self.conunt(m, n - 1, tt)</span><br><span class="line">            return tt[m][n]</span><br></pre></td></tr></table></figure>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2015/12/28/62.Unique Paths/" data-title="62.Unique Paths" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2015/12/28/62.Unique Paths/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

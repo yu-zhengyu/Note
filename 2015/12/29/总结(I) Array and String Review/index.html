@@ -1,0 +1,468 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>总结(I) Array and String Review --- 数组类和String题目总结 | 郑彧</title>
+    <meta name="author" content="郑彧 Yu Zheng">
+    
+    <meta name="description" content="闲来无事，随便写写">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="总结(I) Array and String Review --- 数组类和String题目总结"/>
+    <meta property="og:site_name" content="郑彧"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="http://yu-zhengyu.github.com/note/favicon.png">
+    <link rel="alternate" href="http://yu-zhengyu.github.com/note/atom.xml" title="郑彧" type="application/atom+xml">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="green">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">郑彧</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/note" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/note/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/note/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            Reading
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/note/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav green darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">郑彧</p>
+                        <p class="desc">CMU 在读大渣一枚</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/note" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/note/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/note/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    Reading
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/note/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav green darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/游戏/">
+                    游戏 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/刷题/">
+                    刷题 <span class="right">5</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/总结/">
+                    总结 <span class="right">10</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper green">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>总结(I) Array and String Review --- 数组类和String题目总结</h1>
+    
+
+
+            </div>
+            <time class="indigo-link-context" datetime="2015-12-29T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2015/12/29/总结(I) Array and String Review/">2015-12-29</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
+        
+    </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#String"><span class="section table-of-contents-text">String</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Write-a-method-anagram-s-t-to-decide-if-two-strings-are-anagrams-or-not"><span class="section table-of-contents-text">Write a method anagram(s,t) to decide if two strings are anagrams or not.</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Check-if-the-String-is-unique"><span class="section table-of-contents-text">Check if the String is unique.</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#check-the-if-sentence-is-palinpermutation"><span class="section table-of-contents-text">check the if sentence is palinpermutation</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#stringcompress"><span class="section table-of-contents-text">stringcompress</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#check-if-the-s2-is-the-rotate-from-s1"><span class="section table-of-contents-text">check if the s2 is the rotate from s1</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Reverse-a-sentenace-such-as-“code-is-good”-after-reverse-it-would-become-“good-is-code”"><span class="section table-of-contents-text">Reverse a sentenace. such as “code is good”, after reverse, it would become “good is code”.</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Array"><span class="section table-of-contents-text">Array</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#basci-skill"><span class="section table-of-contents-text">basci skill</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <p>这几篇我会归类总结一下做过的题目。总体会根据《Cracking the Code interview 189》这本书来进行复习。<br><a id="more"></a></p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><hr>
+<h3 id="Write-a-method-anagram-s-t-to-decide-if-two-strings-are-anagrams-or-not"><a href="#Write-a-method-anagram-s-t-to-decide-if-two-strings-are-anagrams-or-not" class="headerlink" title="Write a method anagram(s,t) to decide if two strings are anagrams or not."></a>Write a method anagram(s,t) to decide if two strings are anagrams or not.</h3><p>这题是google一道面试题。题目的意思很简单，就看一个String是不是另一个String重新排序后的结果。方法很多。比较好的做法是开一个int[256], 分别扫一遍String，把相应字符的ASCII码记录。然后相互对比。又或者扫第一个字符串的时候，每一个相应字符下的数量+1，扫第二个的时候就-1，然后看看所有数组是不是都是0，这样的时间复杂度是O(N), 空间的话是O(N). 还有比较SB的方法。把字符排序，然后直接对比，这样时间复杂度是O(nlogn).</p>
+<p>lintcode上有个follow up说能不能用O(n) time, O(1) extra space，我的想法是用bit 来做。利用相同的数字异或后结果为0. 然后我们就可以判断了。这样就只是用了O(1) extra space。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    /**</span><br><span class="line">     * @param s: The first string</span><br><span class="line">     * @param b: The second string</span><br><span class="line">     * @return true or false</span><br><span class="line">     */</span><br><span class="line">    public boolean anagram(String s, String t) &#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        int result = 0;</span><br><span class="line">        if(s.length() != t.length())</span><br><span class="line">            return false;</span><br><span class="line">        for(int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">            result ^= s.charAt(i);</span><br><span class="line">            result ^= t.charAt(i);</span><br><span class="line">        &#125;</span><br><span class="line">        if(result == 0)</span><br><span class="line">            return true;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Check-if-the-String-is-unique"><a href="#Check-if-the-String-is-unique" class="headerlink" title="Check if the String is unique."></a>Check if the String is unique.</h3><p>这题也是比较高频的。其实可以直接用HashTable直接记下每一个字母出现的字数，如果有字母已经出现了，那么就返回false即可。当然，面试的时候follow up可能会要求你不要用extra data structure. 那么HashTable就不可以用了。 我们可以用一个int数组来解决一个问题。还是和上题一样，用一个256位的数组储存每一个字母出现的次数，如果发现改字母的数据已经不是0了，就可以返回false了。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static boolean isUniqueNoExtraDataStructure(String testStr)&#123;</span><br><span class="line">    int alphabetInt = 0;</span><br><span class="line">    String str = testStr.toLowerCase();</span><br><span class="line">    for (int i = 0; i &lt; str.length(); i++)&#123;</span><br><span class="line">        int val = str.charAt(i) - &apos;a&apos;;</span><br><span class="line">        if ((alphabetInt &amp; (1 &lt;&lt; val)) &gt; 0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        alphabetInt |= (1 &lt;&lt; val);</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我还发现了一个比较贱的做法，就是用String的API，String有一个方法叫indexOf和lastIndexOf。分别是求出一个字符的首次出现的下标和最后一次出现的下标。那这就简单了。当一个字符的第一个下标和最后一个下标都相等，那就说明它只出现了一次。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static boolean compareUnique(String a) &#123;</span><br><span class="line">	boolean result = true;</span><br><span class="line">	for(int i = 0; i &lt; a.length(); i++) &#123;</span><br><span class="line">		if (a.indexOf(a.charAt(i)) != a.lastIndexOf(a.charAt(i))) &#123;</span><br><span class="line">			result = false;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="check-the-if-sentence-is-palinpermutation"><a href="#check-the-if-sentence-is-palinpermutation" class="headerlink" title="check the if sentence is palinpermutation"></a>check the if sentence is palinpermutation</h3><p>回文，比较经典的一道题目。考法太多。还有专门的算法来求一个长String中求出最长回文的，<a href="http://blog.csdn.net/yzl_rex/article/details/7908259" target="_blank" rel="external">Manacher算法：求解最长回文字符串，时间复杂度为O(N)</a>，等有空在回过头来看。</p>
+<p>测一个字符串是不是回文还是比较简单。CC里面的题目稍微增加点难度，字符串中可能会有空格。在处理的时候要小心处理空格的部分即可。</p>
+<p>for example：“Tact Coa” 就是一个回文字符串。</p>
+<p>那么，这个题目可以有几种做法。我比较喜欢的就是用双指针来做，不会使用太多的空间。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean isPalindrome(String s) &#123;</span><br><span class="line">        int i = 0;</span><br><span class="line">        int j = s.length() - 1;</span><br><span class="line">        if(s.length() == 1)</span><br><span class="line">            return true;</span><br><span class="line">        while(i &lt; j) &#123;</span><br><span class="line">            // 略过不是数字和字母的情况</span><br><span class="line">            while(!Character.isLetterOrDigit(s.charAt(i)) &amp;&amp; i &lt; j)</span><br><span class="line">                i++;</span><br><span class="line">            while(!Character.isLetterOrDigit(s.charAt(j)) &amp;&amp; i &lt; j)</span><br><span class="line">                j--;</span><br><span class="line">                </span><br><span class="line">            char a = Character.toLowerCase(s.charAt(i));</span><br><span class="line">            char b = Character.toLowerCase(s.charAt(j));</span><br><span class="line">            if(a != b)</span><br><span class="line">                return false;</span><br><span class="line">            // 开始对比下一个字符</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        return i &gt;= j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="stringcompress"><a href="#stringcompress" class="headerlink" title="stringcompress"></a>stringcompress</h3><p>我是没想到有面试会出现这个。还是挺经典的。就是把相同的字母用数字和字母进行概括。比如说：aaabbbccc就替换成3a3b3c.所以直接上代码了。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static String stringcompress(String s) &#123;</span><br><span class="line">	int count = 0;</span><br><span class="line">	StringBuffer result = new StringBuffer();</span><br><span class="line">	for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">		count++;</span><br><span class="line">		if ((i + 1) == s.length() || s.charAt(i) != s.charAt(i + 1)) &#123;</span><br><span class="line">			result.append(s.charAt(i));</span><br><span class="line">			result.append(count);</span><br><span class="line">			count = 0;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	if (result.toString().length() &lt; s.length())</span><br><span class="line">		return result.toString();</span><br><span class="line">	return s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="check-if-the-s2-is-the-rotate-from-s1"><a href="#check-if-the-s2-is-the-rotate-from-s1" class="headerlink" title="check if the s2 is the rotate from s1"></a>check if the s2 is the rotate from s1</h3><p>这题就是技巧问题了。如果一个字符串是另一个字符串的rotation，那么其实将S2拼接上S1的尾部，然后查看S2是否是新字符串的字串即可。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static boolean isrotate (String s1, String s2) &#123;</span><br><span class="line">	if (s1.length() != s2.length())</span><br><span class="line">			return false;</span><br><span class="line">	String newstring = s1 + s1;</span><br><span class="line">	return newstring.contains(s2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Reverse-a-sentenace-such-as-“code-is-good”-after-reverse-it-would-become-“good-is-code”"><a href="#Reverse-a-sentenace-such-as-“code-is-good”-after-reverse-it-would-become-“good-is-code”" class="headerlink" title="Reverse a sentenace. such as “code is good”, after reverse, it would become “good is code”."></a>Reverse a sentenace. such as “code is good”, after reverse, it would become “good is code”.</h3><p>翻转一个句子，一个一个单词进行翻转。这题一开始我还是懵了。后来发现也挺简单。用给一个下标来进行遍历。如果遇到一个空格，就重头开始插入。否则就一直顺着原来的顺序进行插入。看了代码就明白了，还是比较巧妙。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String str = &quot;much. very you love I&quot;;</span><br><span class="line">	System.out.println(reverse(str));</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static String reverse(String s) &#123;</span><br><span class="line">	int pos = 0;</span><br><span class="line">	StringBuilder sb = new StringBuilder();</span><br><span class="line">	for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">		char c = s.charAt(i);</span><br><span class="line">		if (c == &apos; &apos;) &#123;</span><br><span class="line">			pos = 0;</span><br><span class="line">		&#125;</span><br><span class="line">		sb.insert(pos, c);</span><br><span class="line">		if (c != &apos; &apos;) &#123;</span><br><span class="line">			pos++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><h3 id="basci-skill"><a href="#basci-skill" class="headerlink" title="basci skill"></a>basci skill</h3><p>Reverse a array in java.<br>比较会常用的一种，记一下。当然也可以用库函数：<strong><em>Collections.reverse(Arrays.asList(nums));</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public void reverse(int[] nums, int left, int right)&#123;</span><br><span class="line">    while(left&lt;right)&#123;</span><br><span class="line">        int temp = nums[left];</span><br><span class="line">        nums[left]=nums[right];</span><br><span class="line">        nums[right]=temp;</span><br><span class="line">        left++;</span><br><span class="line">        right--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2015/12/29/总结(I) Array and String Review/" data-title="总结(I) Array and String Review --- 数组类和String题目总结" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2015/12/29/总结(I) Array and String Review/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large indigo">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect cyan" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse light-green"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer green darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="http://weibo.com/zhengyudejia" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/yu-zhengyu" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">Links</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright indigo-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+</div>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/jquery-2.1.1.min.js"></script>
+<script src="http://yu-zhengyu.github.com/note/js/materialize.min.js"></script>
+
+<script>
+(function($) {
+    $(document).ready(function() {
+        // 隐藏禁用javascript（针对微信内置浏览器）的提示
+        $('.noscript').hide();
+
+        // 图片缩放效果
+        var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+        // 给图片加上点击放大效果（materialbox插件）
+        $imgs.addClass('materialboxed')
+            .each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+        // 优化表格的显示
+        $('table').addClass('responsive-table striped bordered');
+
+        // 首页幻灯片
+        $('.slider').slider({
+            indicators: true,
+            full_width: true,
+            interval: 8000
+        });
+
+        $(".button-collapse").sideNav();
+        $(".category-menu").sideNav();
+
+        // 针对gallery post
+        $('.carousel').carousel({
+            full_width: true
+        });
+        $('.carousel-control.prev').click(function() {
+            $('.carousel').carousel('prev');
+        });
+        $('.carousel-control.next').click(function() {
+            $('.carousel').carousel('next');
+        });
+
+        // 文章目录
+        $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+        // 修正文章目录的left-border颜色
+        var color = $('.table-of-contents-text').css('color');
+        $('.table-of-contents-link').css('border-left-color', color);
+
+        // 针对移动端做的优化：FAB按钮点击一下收回
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('.fixed-action-btn').addClass('click-to-toggle');
+        }
+        // 回到顶部
+        $('.btn-return-top').click(function() {
+            $('body, html').animate({
+                scrollTop: 0
+            }, 500);
+        });
+
+        // 重置读书页面的Tab标签页的颜色
+        $('li.tab a').hover(function() {
+            $(this).toggleClass('text-lighten-4');
+        });
+        $('.indicator').addClass('indigo lighten-2');
+
+        
+        // 添加new标签
+        $('.menu-reading,.menu-about').append('<span class="new badge indigo"></span>');
+        
+    });
+})(jQuery);
+</script>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

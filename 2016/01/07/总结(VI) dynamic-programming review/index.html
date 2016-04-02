@@ -7,7 +7,7 @@
 
     
 
-    <title>游戏 | 郑彧</title>
+    <title>总结(VI) dynamic-programming review --- 动态规划题目总结 | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="总结(VI) dynamic-programming review --- 动态规划题目总结"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -187,30 +187,102 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
 
         
-            <a class="breadcrumb" href="/categories/游戏/">游戏</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>总结(VI) dynamic-programming review --- 动态规划题目总结</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="indigo-link-context" datetime="2016-01-07T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2016/01/07/总结(VI) dynamic-programming review/">2016-01-07</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="http://yu-zhengyu.github.com/note/2016/01/05/关于仙剑奇侠传6的一些感想/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-01-05T07:23:10.000Z">2016-01-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                关于仙剑奇侠传6的一些感想
-            </a>
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
         
     </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-Coin-Change"><span class="section table-of-contents-text">1. Coin Change</span></a></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <p>动态规划的题目，一般可以在网上搜索<strong><em>《背包九讲》</em></strong>这个帖子，讲的还是挺好的，由浅入深。下面就把自己觉得遇到的比较典型的题目记录下来。<br><a id="more"></a></p>
+<hr>
+<h3 id="1-Coin-Change"><a href="#1-Coin-Change" class="headerlink" title="1. Coin Change"></a>1. Coin Change</h3><p>You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.</p>
+<p>Example 1:<br>coins = [1, 2, 5], amount = 11<br>return 3 (11 = 5 + 5 + 1)</p>
+<p>Example 2:<br>coins = [2], amount = 3<br>return -1.</p>
+<p>这个题目就是凑硬币。一开始我没往动态规划上面想。我就觉得每次取最大，不行就倒退。后来发现这个想法不现实。还是只能一个一个求出来，然后由下往上求解。</p>
+<p>####code[java] 非递归</p>
+<p>基本就是bottom-up的解法。先凑1元，得出凑出1元最少需要多少个，然后求2元……以此类推，到求出amount。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int coinChange(int[] coins, int amount) &#123;</span><br><span class="line">        if(amount == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        int[] result = new int[amount + 1];        </span><br><span class="line">        int sum = 0;</span><br><span class="line">        while(++sum &lt;= amount) &#123;</span><br><span class="line">            int min = -1;</span><br><span class="line">            for(int i = 0; i &lt; coins.length; i++) &#123;</span><br><span class="line">                if(sum &gt;= coins[i] &amp;&amp; result[sum - coins[i]] != -1) &#123;</span><br><span class="line">                    int t = result[sum - coins[i]] + 1;</span><br><span class="line">                    if(min &lt; 0)</span><br><span class="line">                        min = result[sum - coins[i]] + 1;</span><br><span class="line">                    else &#123;</span><br><span class="line">                        if(result[sum - coins[i]] + 1 &lt; min)</span><br><span class="line">                            min = result[sum - coins[i]] + 1;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            result[sum] = min;</span><br><span class="line">        &#125;</span><br><span class="line">        return result[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####code[java] 递归</p>
+<p>和非递归差不多，不过是由up到bottom。假设当前我们已经能得到当前的钱数，那么，遍历一遍coin，看前一个能凑成当前钱数最小的，那么当前的最小组合数就是lastsum+1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">	public int coinChange(int[] coins, int amount) &#123;</span><br><span class="line">		if (amount &lt; 1)</span><br><span class="line">			return 0;</span><br><span class="line">		return helper(coins, amount, new int[amount]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private int helper(int[] coins, int rem, int[] count) &#123; // rem: remaining</span><br><span class="line">															// coins after the</span><br><span class="line">															// last step;</span><br><span class="line">															// count[rem]:</span><br><span class="line">															// minimum number of</span><br><span class="line">															// coins to sum up</span><br><span class="line">															// to rem</span><br><span class="line">		if (rem &lt; 0)</span><br><span class="line">			return -1; // not valid</span><br><span class="line">		if (rem == 0)</span><br><span class="line">			return 0; // completed</span><br><span class="line">		if (count[rem - 1] != 0)</span><br><span class="line">			return count[rem - 1]; // already computed, so reuse</span><br><span class="line">		int min = Integer.MAX_VALUE;</span><br><span class="line">		for (int coin : coins) &#123;</span><br><span class="line">			int res = helper(coins, rem - coin, count);</span><br><span class="line">			if (res &gt;= 0 &amp;&amp; res &lt; min)</span><br><span class="line">				min = 1 + res;</span><br><span class="line">		&#125;</span><br><span class="line">		count[rem - 1] = (min == Integer.MAX_VALUE) ? -1 : min;</span><br><span class="line">		return count[rem - 1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/01/07/总结(VI) dynamic-programming review/" data-title="总结(VI) dynamic-programming review --- 动态规划题目总结" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2016/01/07/总结(VI) dynamic-programming review/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

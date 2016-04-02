@@ -7,7 +7,7 @@
 
     
 
-    <title>游戏 | 郑彧</title>
+    <title>总结(VIII) Topological sort --- 拓扑排序总结 | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="总结(VIII) Topological sort --- 拓扑排序总结"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -187,30 +187,117 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
 
         
-            <a class="breadcrumb" href="/categories/游戏/">游戏</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>总结(VIII) Topological sort --- 拓扑排序总结</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="indigo-link-context" datetime="2016-01-13T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2016/01/13/总结(VIII) Topological sort/">2016-01-13</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="http://yu-zhengyu.github.com/note/2016/01/05/关于仙剑奇侠传6的一些感想/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-01-05T07:23:10.000Z">2016-01-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                关于仙剑奇侠传6的一些感想
-            </a>
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
         
     </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#leetcode-例子"><span class="section table-of-contents-text">leetcode 例子</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#207-Course-Schedule"><span class="section table-of-contents-text">207. Course Schedule</span></a></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <p>今天终于把拓扑排序好好的看了一遍，终于稍微搞懂了。其实还是比较简单的。我们只要明白一点：拓扑排序只能作用在有向无环图之中。明白了这个，我们的题目就比较好做了。<br><a id="more"></a></p>
+<p>首先是有向无环图，这里我就直接摘抄网上一个写的比较好的例子来说明。</p>
+<p>拓扑排序其实就是有向无环图的所有顶点的线性序列。且该序列必须满足下面两个条件：</p>
+<ul>
+<li>每个顶点出现且只出现一次。</li>
+<li>若存在一条从顶点 A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。</li>
+</ul>
+<p>然后，我们就可以开始进行拓扑排序了，我们可以参照下面的步骤</p>
+<ul>
+<li>从 DAG 图中选择一个 没有前驱（即入度为0）的顶点并输出。</li>
+<li>从图中删除该顶点和所有以它为起点的有向边。</li>
+<li>重复 1 和 2 直到当前的 DAG 图为空或当前图中不存在无前驱的顶点为止。后一种情况说明有向图中必然存在环。<br>“下面是图示：</li>
+</ul>
+<p>一个普通的有向无环图:</p>
+<p><img src="http://img.blog.csdn.net/20150507001028284"></p>
+<p>下面是拓扑排序的步骤。</p>
+<p><img src="http://img.blog.csdn.net/20150507001759702"></p>
+<p>最后我们可以得到其中一个结果（结果不唯一）：<br> { 1, 2, 4, 3, 5 }</p>
+<h3 id="leetcode-例子"><a href="#leetcode-例子" class="headerlink" title="leetcode 例子"></a>leetcode 例子</h3><h3 id="207-Course-Schedule"><a href="#207-Course-Schedule" class="headerlink" title="207. Course Schedule"></a>207. Course Schedule</h3><p>There are a total of n courses you have to take, labeled from 0 to n - 1.</p>
+<p>Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]</p>
+<p>Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?</p>
+<p>For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2, [[1,0]]</span><br></pre></td></tr></table></figure>
+<p>There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2, [[1,0],[0,1]]</span><br></pre></td></tr></table></figure>
+<p>There are a total of 2 courses to take. To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean canFinish(int numCourses, int[][] prerequisites) &#123;</span><br><span class="line">        // 用邻接矩阵来储存有向图</span><br><span class="line">        int[][] matrix = new int[numCourses][numCourses];</span><br><span class="line">        int[] inarray = new int[numCourses];</span><br><span class="line">        </span><br><span class="line">        // 建立矩阵，若pre点到current点有边，则设为1，同时current点的入度+1</span><br><span class="line">        for(int i = 0; i &lt; prerequisites.length; i++) &#123;</span><br><span class="line">            int pre = prerequisites[i][1];</span><br><span class="line">            int current = prerequisites[i][0];</span><br><span class="line">            if(matrix[pre][current] == 0)</span><br><span class="line">                inarray[current]++;</span><br><span class="line">            matrix[pre][current] = 1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        // 先把入度为0的点加入队列</span><br><span class="line">        LinkedList&lt;Integer&gt; que = new LinkedList&lt;Integer&gt;();</span><br><span class="line">        for(int i = 0; i &lt; inarray.length; i++) &#123;</span><br><span class="line">            if(inarray[i] == 0)</span><br><span class="line">                que.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        int count = 0;</span><br><span class="line">        while(que.size() != 0) &#123;</span><br><span class="line">            int current = que.poll();</span><br><span class="line">            count++;</span><br><span class="line">            for(int i = 0; i &lt; numCourses; i++)&#123;</span><br><span class="line">                if(matrix[current][i] != 0) &#123; // 判断入度为0的课到该课程上是否有边</span><br><span class="line">                    inarray[i]--;   // 删除该边</span><br><span class="line">                    if(inarray[i] == 0) // 如果该点入度也为0了，加入队列</span><br><span class="line">                        que.add(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        // 如果该图是一个有向无环图，则最后拓扑排序一定能遍历所有点，否则不是。</span><br><span class="line">        return count == numCourses;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/01/13/总结(VIII) Topological sort/" data-title="总结(VIII) Topological sort --- 拓扑排序总结" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2016/01/13/总结(VIII) Topological sort/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

@@ -7,7 +7,7 @@
 
     
 
-    <title>游戏 | 郑彧</title>
+    <title>总结(V) List review --- List 题目总结 | 郑彧</title>
     <meta name="author" content="郑彧 Yu Zheng">
     
     <meta name="description" content="闲来无事，随便写写">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="总结(V) List review --- List 题目总结"/>
     <meta property="og:site_name" content="郑彧"/>
 
     
@@ -187,30 +187,103 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
 
         
-            <a class="breadcrumb" href="/categories/游戏/">游戏</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>总结(V) List review --- List 题目总结</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="indigo-link-context" datetime="2016-01-06T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2016/01/06/总结(V) List review/">2016-01-06</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="http://yu-zhengyu.github.com/note/2016/01/05/关于仙剑奇侠传6的一些感想/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-01-05T07:23:10.000Z">2016-01-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                关于仙剑奇侠传6的一些感想
-            </a>
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
         
     </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-Reverse-a-list-in-place"><span class="section table-of-contents-text">1. Reverse a list in place</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-find-the-middle-of-linked-list"><span class="section table-of-contents-text">2. find the middle of linked list</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-reverse-a-list-from-m-to-n"><span class="section table-of-contents-text">3. reverse a list from m to n</span></a></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <p>List的题目可以说是我做的最不好的。并不是说不会方法，而是有时候边界条件的检查让我们可能很难在15分钟之内做到bug free。所以我这里举出一些常用的手法，到时候大家可以直接背下来，直接用。当然你也可以现场画图，但是我觉得那样时间就慢了。<br><a id="more"></a></p>
+<hr>
+<h3 id="1-Reverse-a-list-in-place"><a href="#1-Reverse-a-list-in-place" class="headerlink" title="1. Reverse a list in place"></a>1. Reverse a list in place</h3><p>不用多余的空间，翻转一个链表，这个其实一开始我是觉得挺有难度的，因为每次我都记不住，所以我这次就直接记下了，免得到时候用着又来查。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">    if(head==null) return head;</span><br><span class="line">    ListNode temp1= head.next;</span><br><span class="line">    ListNode temp2= null;</span><br><span class="line">    head.next=null;</span><br><span class="line">    while(temp1!=null)&#123;</span><br><span class="line">        temp2=temp1.next;</span><br><span class="line">        temp1.next=head;</span><br><span class="line">        head=temp1;</span><br><span class="line">        temp1=temp2;</span><br><span class="line">    &#125;</span><br><span class="line">    return head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-find-the-middle-of-linked-list"><a href="#2-find-the-middle-of-linked-list" class="headerlink" title="2. find the middle of linked list"></a>2. find the middle of linked list</h3><p>高频率用到，主要的方法就是用一个runner指针。这个技巧也会用在寻找一个链表中是否有回路。</p>
+<p>####code[java]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public static ListNode getMiddleOfList(ListNode l) &#123;</span><br><span class="line">	ListNode fast = l;</span><br><span class="line">	ListNode slow = l;</span><br><span class="line">	ListNode prev = null;</span><br><span class="line">	while(fast != null &amp;&amp; fast.next != null) &#123;</span><br><span class="line">		prev = slow;</span><br><span class="line">		slow = slow.next;</span><br><span class="line">		fast = fast.next.next;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码基本包含了奇偶的情况，有这种题就大胆往上写，绝对不出错。</p>
+<hr>
+<h3 id="3-reverse-a-list-from-m-to-n"><a href="#3-reverse-a-list-from-m-to-n" class="headerlink" title="3. reverse a list from m to n"></a>3. reverse a list from m to n</h3><p>这题我做的真的不好，后来还是看答案来写了。一开始的思路不太好。总认为是要先把 m 到 n 的链表先翻转了，然后再将这个翻转后的链表连回原来的头和尾。这样导致了我总是没办法满足一些边界条件。</p>
+<p>其实这题不需要我想的那么麻烦，其实就记得一个头，然后每次遍历以后把当前的node插入到头的下一个就好了。这样的话还不容易出错。还有就是dummy的技巧用的不是很熟，以后打算每天都写一遍这个题，加强手部反应。</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode reverseBetween(ListNode head, int m, int n) &#123;</span><br><span class="line">        if(head == null)</span><br><span class="line">            return null;</span><br><span class="line">        ListNode dummy = new ListNode(0);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        ListNode pre = dummy;</span><br><span class="line">        for(int i = 0; i &lt; m - 1; i++)</span><br><span class="line">            pre = pre.next;</span><br><span class="line">        ListNode current = pre.next;</span><br><span class="line">        ListNode nextn = current.next;</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i &lt; n - m; i++) &#123;</span><br><span class="line">            current.next = nextn.next;</span><br><span class="line">            nextn.next = pre.next;</span><br><span class="line">            pre.next = nextn;</span><br><span class="line">            nextn = current.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return dummy.next;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/01/06/总结(V) List review/" data-title="总结(V) List review --- List 题目总结" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2016/01/06/总结(V) List review/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

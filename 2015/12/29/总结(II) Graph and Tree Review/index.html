@@ -1,0 +1,464 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>总结(II) Graph and Tree Review --- 图和树的总结 | 郑彧</title>
+    <meta name="author" content="郑彧 Yu Zheng">
+    
+    <meta name="description" content="闲来无事，随便写写">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="总结(II) Graph and Tree Review --- 图和树的总结"/>
+    <meta property="og:site_name" content="郑彧"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="http://yu-zhengyu.github.com/note/favicon.png">
+    <link rel="alternate" href="http://yu-zhengyu.github.com/note/atom.xml" title="郑彧" type="application/atom+xml">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="http://yu-zhengyu.github.com/note/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="green">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">郑彧</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/note" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/note/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/note/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            Reading
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/note/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav green darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">郑彧</p>
+                        <p class="desc">CMU 在读大渣一枚</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/note" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/note/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/note/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    Reading
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/note/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav green darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/游戏/">
+                    游戏 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/刷题/">
+                    刷题 <span class="right">5</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="http://yu-zhengyu.github.com/note/categories/总结/">
+                    总结 <span class="right">10</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper green">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="http://yu-zhengyu.github.com/note/categories/总结/">总结</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>总结(II) Graph and Tree Review --- 图和树的总结</h1>
+    
+
+
+            </div>
+            <time class="indigo-link-context" datetime="2015-12-29T14:22:30.000Z"><a href="http://yu-zhengyu.github.com/note/2015/12/29/总结(II) Graph and Tree Review/">2015-12-29</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/leetcode/" class="chip indigo lighten-1">leetcode</a>
+        
+            <a href="http://yu-zhengyu.github.com/note/tags/刷题/" class="chip indigo lighten-1">刷题</a>
+        
+    </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#图"><span class="section table-of-contents-text">图</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#DFS"><span class="section table-of-contents-text">DFS</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#BFS"><span class="section table-of-contents-text">BFS</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#树"><span class="section table-of-contents-text">树</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#前序"><span class="section table-of-contents-text">前序</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#中序和后序"><span class="section table-of-contents-text">中序和后序</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#树的构建"><span class="section table-of-contents-text">树的构建</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <hr>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>图的话我现在也就基本掌握了<strong><em>BFS</em></strong> 和 <strong><em>DFS</em></strong>，在难的像什么有向图，流的搜索，拓扑排序，最小生成树什么的，大二考完试后除了记得大体思路外，具体编码已经忘记怎么做了。以后再慢慢进行补充好了。</p>
+<p>首先还是总结基本的算法。</p>
+<hr>
+<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><p>DFS其实就是把每次搜索的点加入到<strong><em>栈</em></strong>当中，一直搜索知道栈为空。这个方法有时候在树的问题也会用的到。下面是代码的基本思路。</p>
+<p>这个代码是找判断给出的两个节点是否联通，如果联通就返回ture，不连通返回false。</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">	enum State &#123;Unvisit, Visited, Visting&#125;;</span><br><span class="line"></span><br><span class="line">	public static boolean search(Graph g,Node start,Node end) &#123;</span><br><span class="line">		if(start == end)</span><br><span class="line">			return true;</span><br><span class="line"></span><br><span class="line">		for(Node u : g.getNodes())</span><br><span class="line">			u.state = State.Unvisit;</span><br><span class="line"></span><br><span class="line">		Stack&lt;Node&gt; s = new Stack&lt;Node&gt;();</span><br><span class="line"></span><br><span class="line">		start.state = State.Visting;</span><br><span class="line">		s.push(start);</span><br><span class="line"></span><br><span class="line">		while(!s.isEmpty()) &#123;</span><br><span class="line">			Node current = s.pop();</span><br><span class="line">			if(current != null) &#123;</span><br><span class="line">				for(Node v : u.getAdjacent()) &#123;</span><br><span class="line">					if (v.state == State.Unvisit) &#123;</span><br><span class="line">						if(v == end)</span><br><span class="line">							return true;</span><br><span class="line">						else &#123;</span><br><span class="line">							v.state = State.Visting;</span><br><span class="line">							s.push(v);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			current.state = State.Visited;</span><br><span class="line">		&#125;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><p>BFS思想和DFS类似，把每次搜索的点都放进<strong><em>队列</em></strong>当中，一直搜索知道队列为空为止。代码和例子和上述差不多，就是把stack改成Queue即可。具体的以后再补充。</p>
+<hr>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>树一定要掌握的还是<strong><em>前序，中序，后续</em></strong>， 递归和非递归的方法都应该掌握。</p>
+<hr>
+<h3 id="前序"><a href="#前序" class="headerlink" title="前序"></a>前序</h3><p>访问顺序是: 访问，左子树，右子树</p>
+<p>####code[java],递归版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span><br><span class="line">        tral(result, root);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void tral(ArrayList&lt;Integer&gt; result, TreeNode root) &#123;</span><br><span class="line">        if(root == null)</span><br><span class="line">            return;</span><br><span class="line">        result.add(root.val); // 中序则把这行放下一行，后序就把这行放到最后一行。</span><br><span class="line">        tral(result, root.left);</span><br><span class="line">        tral(result, root.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>####code[python],非递归版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def preorderTraversal(self, root):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        stac = []</span><br><span class="line">        result = []</span><br><span class="line">        p = root</span><br><span class="line">        while len(stac) != 0 or p != None:</span><br><span class="line">            if p != None:</span><br><span class="line">                stac.append(p)</span><br><span class="line">                result.append(p.val)</span><br><span class="line">                p = p.left</span><br><span class="line">            else:</span><br><span class="line">                top =stac.pop()</span><br><span class="line">                p = top.right</span><br><span class="line">        return result</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="中序和后序"><a href="#中序和后序" class="headerlink" title="中序和后序"></a>中序和后序</h3><p>基本上看了前序以后，中序和后序就差不多了。递归版本的话，就是读取和访问的顺序不同而已。上面已经在代码上标注了，下面再次把三种方式总结：</p>
+<ul>
+<li>前序访问顺序是: 访问，左子树，右子树</li>
+<li>中序访问顺序是: 左子树，访问，右子树</li>
+<li>后序访问顺序是: 左子树，右子树，访问</li>
+</ul>
+<hr>
+<h3 id="树的构建"><a href="#树的构建" class="headerlink" title="树的构建"></a>树的构建</h3><p>比较基本的还有树的构建方面的题目，比如给出中序和后序访问的数组，构建一个树，或者给出前序和中序，构建一个树。</p>
+<hr>
+<p>####Construct Binary Tree from Inorder and Postorder Traversal</p>
+<p>####code[java] </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public TreeNode buildTree(int[] inorder, int[] postorder) &#123;</span><br><span class="line">        int rootindex = 0;</span><br><span class="line">        if(inorder==null || postorder==null || inorder.length==0 || postorder.length==0) </span><br><span class="line">            return null;</span><br><span class="line">        TreeNode root = new TreeNode(postorder[postorder.length - 1]);</span><br><span class="line">        if(postorder.length==1) </span><br><span class="line">            return root;</span><br><span class="line">            </span><br><span class="line">        for(int i = 0; i &lt; inorder.length; i++) &#123;</span><br><span class="line">            if(inorder[i] == postorder[postorder.length - 1]) &#123;</span><br><span class="line">                rootindex = i;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int[] inleft = Arrays.copyOfRange(inorder, 0, rootindex);</span><br><span class="line">        int[] inright = Arrays.copyOfRange(inorder, rootindex + 1, inorder.length);</span><br><span class="line">        int[] postleft = Arrays.copyOfRange(postorder, 0, rootindex);</span><br><span class="line">        int[] postright = Arrays.copyOfRange(postorder, rootindex, postorder.length - 1);</span><br><span class="line">        root.left = buildTree(inleft, postleft);</span><br><span class="line">        root.right = buildTree(inright, postright);</span><br><span class="line">        return root;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>####Construct Binary Tree from Preorder and Inorder Traversal</p>
+<p>####code[java]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public TreeNode buildTree(int[] preorder, int[] inorder) &#123;</span><br><span class="line">        int rootindex = 0;</span><br><span class="line">        if(inorder==null || preorder==null || inorder.length==0 || preorder.length==0) </span><br><span class="line">            return null;</span><br><span class="line">        TreeNode root = new TreeNode(preorder[0]);</span><br><span class="line">        if(preorder.length==1) </span><br><span class="line">            return root;</span><br><span class="line">            </span><br><span class="line">        for(int i = 0; i &lt; inorder.length; i++) &#123;</span><br><span class="line">            if(inorder[i] == preorder[0]) &#123;</span><br><span class="line">                rootindex = i;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int[] inleft = Arrays.copyOfRange(inorder, 0, rootindex);</span><br><span class="line">        int[] inright = Arrays.copyOfRange(inorder, rootindex + 1, inorder.length);</span><br><span class="line">        int[] preleft = Arrays.copyOfRange(preorder, 1, rootindex + 1);</span><br><span class="line">        int[] preright = Arrays.copyOfRange(preorder, rootindex + 1, preorder.length);</span><br><span class="line">        root.left = buildTree(preleft, inleft);</span><br><span class="line">        root.right = buildTree(preright, inright);</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2015/12/29/总结(II) Graph and Tree Review/" data-title="总结(II) Graph and Tree Review --- 图和树的总结" data-url="http://yu-zhengyu.github.com/notehttp:/yu-zhengyu.github.com/note/2015/12/29/总结(II) Graph and Tree Review/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yu-zhengyu'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large indigo">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect cyan" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse light-green"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer green darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="http://weibo.com/zhengyudejia" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/yu-zhengyu" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">Links</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright indigo-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+</div>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/jquery-2.1.1.min.js"></script>
+<script src="http://yu-zhengyu.github.com/note/js/materialize.min.js"></script>
+
+<script>
+(function($) {
+    $(document).ready(function() {
+        // 隐藏禁用javascript（针对微信内置浏览器）的提示
+        $('.noscript').hide();
+
+        // 图片缩放效果
+        var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+        // 给图片加上点击放大效果（materialbox插件）
+        $imgs.addClass('materialboxed')
+            .each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+        // 优化表格的显示
+        $('table').addClass('responsive-table striped bordered');
+
+        // 首页幻灯片
+        $('.slider').slider({
+            indicators: true,
+            full_width: true,
+            interval: 8000
+        });
+
+        $(".button-collapse").sideNav();
+        $(".category-menu").sideNav();
+
+        // 针对gallery post
+        $('.carousel').carousel({
+            full_width: true
+        });
+        $('.carousel-control.prev').click(function() {
+            $('.carousel').carousel('prev');
+        });
+        $('.carousel-control.next').click(function() {
+            $('.carousel').carousel('next');
+        });
+
+        // 文章目录
+        $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+        // 修正文章目录的left-border颜色
+        var color = $('.table-of-contents-text').css('color');
+        $('.table-of-contents-link').css('border-left-color', color);
+
+        // 针对移动端做的优化：FAB按钮点击一下收回
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('.fixed-action-btn').addClass('click-to-toggle');
+        }
+        // 回到顶部
+        $('.btn-return-top').click(function() {
+            $('body, html').animate({
+                scrollTop: 0
+            }, 500);
+        });
+
+        // 重置读书页面的Tab标签页的颜色
+        $('li.tab a').hover(function() {
+            $(this).toggleClass('text-lighten-4');
+        });
+        $('.indicator').addClass('indigo lighten-2');
+
+        
+        // 添加new标签
+        $('.menu-reading,.menu-about').append('<span class="new badge indigo"></span>');
+        
+    });
+})(jQuery);
+</script>
+
+
+<script src="http://yu-zhengyu.github.com/note/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
