@@ -5,7 +5,7 @@
   <link href="/note/atom.xml" rel="self"/>
   
   <link href="http://yu-zhengyu.github.com/note/"/>
-  <updated>2016-04-03T14:39:36.000Z</updated>
+  <updated>2016-05-16T20:50:20.000Z</updated>
   <id>http://yu-zhengyu.github.com/note/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>毕业之后</title>
+    <link href="http://yu-zhengyu.github.com/note/2016/05/16/%E6%AF%95%E4%B8%9A%E4%B9%8B%E5%90%8E/"/>
+    <id>http://yu-zhengyu.github.com/note/2016/05/16/毕业之后/</id>
+    <published>2016-05-16T20:49:02.000Z</published>
+    <updated>2016-05-16T20:50:20.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yu-zhengyu.github.com/note/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="毕业" scheme="http://yu-zhengyu.github.com/note/tags/%E6%AF%95%E4%B8%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>找工作二三事</title>
@@ -215,6 +235,43 @@
   </entry>
   
   <entry>
+    <title>总结(VI) dynamic-programming review --- 动态规划题目总结</title>
+    <link href="http://yu-zhengyu.github.com/note/2016/01/07/%E6%80%BB%E7%BB%93(VI)%20dynamic-programming%20review/"/>
+    <id>http://yu-zhengyu.github.com/note/2016/01/07/总结(VI) dynamic-programming review/</id>
+    <published>2016-01-07T14:22:30.000Z</published>
+    <updated>2016-04-02T04:57:58.000Z</updated>
+    
+    <content type="html">&lt;p&gt;动态规划的题目，一般可以在网上搜索&lt;strong&gt;&lt;em&gt;《背包九讲》&lt;/em&gt;&lt;/strong&gt;这个帖子，讲的还是挺好的，由浅入深。下面就把自己觉得遇到的比较典型的题目记录下来。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-Coin-Change&quot;&gt;&lt;a href=&quot;#1-Coin-Change&quot; class=&quot;headerlink&quot; title=&quot;1. Coin Change&quot;&gt;&lt;/a&gt;1. Coin Change&lt;/h3&gt;&lt;p&gt;You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.&lt;/p&gt;
+&lt;p&gt;Example 1:&lt;br&gt;coins = [1, 2, 5], amount = 11&lt;br&gt;return 3 (11 = 5 + 5 + 1)&lt;/p&gt;
+&lt;p&gt;Example 2:&lt;br&gt;coins = [2], amount = 3&lt;br&gt;return -1.&lt;/p&gt;
+&lt;p&gt;这个题目就是凑硬币。一开始我没往动态规划上面想。我就觉得每次取最大，不行就倒退。后来发现这个想法不现实。还是只能一个一个求出来，然后由下往上求解。&lt;/p&gt;
+&lt;p&gt;####code[java] 非递归&lt;/p&gt;
+&lt;p&gt;基本就是bottom-up的解法。先凑1元，得出凑出1元最少需要多少个，然后求2元……以此类推，到求出amount。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public class Solution &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public int coinChange(int[] coins, int amount) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if(amount == 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        int[] result = new int[amount + 1];        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        int sum = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        while(++sum &amp;lt;= amount) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            int min = -1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            for(int i = 0; i &amp;lt; coins.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                if(sum &amp;gt;= coins[i] &amp;amp;&amp;amp; result[sum - coins[i]] != -1) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    int t = result[sum - coins[i]] + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    if(min &amp;lt; 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        min = result[sum - coins[i]] + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        if(result[sum - coins[i]] + 1 &amp;lt; min)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            min = result[sum - coins[i]] + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result[sum] = min;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return result[amount];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;####code[java] 递归&lt;/p&gt;
+&lt;p&gt;和非递归差不多，不过是由up到bottom。假设当前我们已经能得到当前的钱数，那么，遍历一遍coin，看前一个能凑成当前钱数最小的，那么当前的最小组合数就是lastsum+1。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public class Solution &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	public int coinChange(int[] coins, int amount) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (amount &amp;lt; 1)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return helper(coins, amount, new int[amount]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	private int helper(int[] coins, int rem, int[] count) &amp;#123; // rem: remaining&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// coins after the&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// last step;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// count[rem]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// minimum number of&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// coins to sum up&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// to rem&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (rem &amp;lt; 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return -1; // not valid&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (rem == 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return 0; // completed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (count[rem - 1] != 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return count[rem - 1]; // already computed, so reuse&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		int min = Integer.MAX_VALUE;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		for (int coin : coins) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			int res = helper(coins, rem - coin, count);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			if (res &amp;gt;= 0 &amp;amp;&amp;amp; res &amp;lt; min)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				min = 1 + res;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		count[rem - 1] = (min == Integer.MAX_VALUE) ? -1 : min;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return count[rem - 1];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;动态规划的题目，一般可以在网上搜索&lt;strong&gt;&lt;em&gt;《背包九讲》&lt;/em&gt;&lt;/strong&gt;这个帖子，讲的还是挺好的，由浅入深。下面就把自己觉得遇到的比较典型的题目记录下来。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="总结" scheme="http://yu-zhengyu.github.com/note/categories/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
+    
+      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>总结(VII) Design review --- 设计题目总结</title>
     <link href="http://yu-zhengyu.github.com/note/2016/01/07/%E6%80%BB%E7%BB%93(VII)%20Design%20review/"/>
     <id>http://yu-zhengyu.github.com/note/2016/01/07/总结(VII) Design review/</id>
@@ -252,43 +309,6 @@
       <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
     
       <category term="设计" scheme="http://yu-zhengyu.github.com/note/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>总结(VI) dynamic-programming review --- 动态规划题目总结</title>
-    <link href="http://yu-zhengyu.github.com/note/2016/01/07/%E6%80%BB%E7%BB%93(VI)%20dynamic-programming%20review/"/>
-    <id>http://yu-zhengyu.github.com/note/2016/01/07/总结(VI) dynamic-programming review/</id>
-    <published>2016-01-07T14:22:30.000Z</published>
-    <updated>2016-04-02T04:57:58.000Z</updated>
-    
-    <content type="html">&lt;p&gt;动态规划的题目，一般可以在网上搜索&lt;strong&gt;&lt;em&gt;《背包九讲》&lt;/em&gt;&lt;/strong&gt;这个帖子，讲的还是挺好的，由浅入深。下面就把自己觉得遇到的比较典型的题目记录下来。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;1-Coin-Change&quot;&gt;&lt;a href=&quot;#1-Coin-Change&quot; class=&quot;headerlink&quot; title=&quot;1. Coin Change&quot;&gt;&lt;/a&gt;1. Coin Change&lt;/h3&gt;&lt;p&gt;You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.&lt;/p&gt;
-&lt;p&gt;Example 1:&lt;br&gt;coins = [1, 2, 5], amount = 11&lt;br&gt;return 3 (11 = 5 + 5 + 1)&lt;/p&gt;
-&lt;p&gt;Example 2:&lt;br&gt;coins = [2], amount = 3&lt;br&gt;return -1.&lt;/p&gt;
-&lt;p&gt;这个题目就是凑硬币。一开始我没往动态规划上面想。我就觉得每次取最大，不行就倒退。后来发现这个想法不现实。还是只能一个一个求出来，然后由下往上求解。&lt;/p&gt;
-&lt;p&gt;####code[java] 非递归&lt;/p&gt;
-&lt;p&gt;基本就是bottom-up的解法。先凑1元，得出凑出1元最少需要多少个，然后求2元……以此类推，到求出amount。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public class Solution &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public int coinChange(int[] coins, int amount) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if(amount == 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        int[] result = new int[amount + 1];        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        int sum = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        while(++sum &amp;lt;= amount) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            int min = -1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            for(int i = 0; i &amp;lt; coins.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                if(sum &amp;gt;= coins[i] &amp;amp;&amp;amp; result[sum - coins[i]] != -1) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    int t = result[sum - coins[i]] + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    if(min &amp;lt; 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        min = result[sum - coins[i]] + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        if(result[sum - coins[i]] + 1 &amp;lt; min)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            min = result[sum - coins[i]] + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result[sum] = min;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return result[amount];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;####code[java] 递归&lt;/p&gt;
-&lt;p&gt;和非递归差不多，不过是由up到bottom。假设当前我们已经能得到当前的钱数，那么，遍历一遍coin，看前一个能凑成当前钱数最小的，那么当前的最小组合数就是lastsum+1。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public class Solution &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	public int coinChange(int[] coins, int amount) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (amount &amp;lt; 1)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return helper(coins, amount, new int[amount]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	private int helper(int[] coins, int rem, int[] count) &amp;#123; // rem: remaining&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// coins after the&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// last step;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// count[rem]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// minimum number of&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// coins to sum up&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;															// to rem&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (rem &amp;lt; 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return -1; // not valid&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (rem == 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return 0; // completed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (count[rem - 1] != 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return count[rem - 1]; // already computed, so reuse&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		int min = Integer.MAX_VALUE;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		for (int coin : coins) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			int res = helper(coins, rem - coin, count);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			if (res &amp;gt;= 0 &amp;amp;&amp;amp; res &amp;lt; min)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				min = 1 + res;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		count[rem - 1] = (min == Integer.MAX_VALUE) ? -1 : min;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return count[rem - 1];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;动态规划的题目，一般可以在网上搜索&lt;strong&gt;&lt;em&gt;《背包九讲》&lt;/em&gt;&lt;/strong&gt;这个帖子，讲的还是挺好的，由浅入深。下面就把自己觉得遇到的比较典型的题目记录下来。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="总结" scheme="http://yu-zhengyu.github.com/note/categories/%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
-    
-      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
@@ -508,6 +528,34 @@
   </entry>
   
   <entry>
+    <title>217. Contains Duplicate</title>
+    <link href="http://yu-zhengyu.github.com/note/2015/12/29/217.%20Contains%20Duplicate/"/>
+    <id>http://yu-zhengyu.github.com/note/2015/12/29/217. Contains Duplicate/</id>
+    <published>2015-12-29T14:22:30.000Z</published>
+    <updated>2016-04-02T05:06:26.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Difficulty-Easy&quot;&gt;&lt;a href=&quot;#Difficulty-Easy&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Easy&quot;&gt;&lt;/a&gt;Difficulty: Easy&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;这个问题非常简单，我的做法就是直接把数组放到set当中就好，然后看set的长度和原数组的长度是否相等，如果相等，就说明没有重复的元素，不相等说明有重复元素。&lt;/p&gt;
+&lt;h3 id=&quot;Code-python&quot;&gt;&lt;a href=&quot;#Code-python&quot; class=&quot;headerlink&quot; title=&quot;Code[python]&quot;&gt;&lt;/a&gt;Code[python]&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class Solution:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # @param &amp;#123;integer[]&amp;#125; nums&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # @return &amp;#123;boolean&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    def containsDuplicate(self, nums):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        b = set(nums)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if len(b) &amp;lt; len(nums):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            return True&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return False&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当然，如果对空间上有所要求，比如说，不能用额外的空间的话。那我们首先要对数组进行排序。那么时间上的话最快也就是O(nlogn)，然后遍历一遍，看看nums[i] == nums[i-1]是否成立。当然，有时候还有一些题目问在一个链表上，是否有重复元素。那么，我的做法就是用两个指针去做，时间上是O(n2).&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Difficulty-Easy&quot;&gt;&lt;a href=&quot;#Difficulty-Easy&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Easy&quot;&gt;&lt;/a&gt;Difficulty: Easy&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
+    
+      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>总结(II) Graph and Tree Review --- 图和树的总结</title>
     <link href="http://yu-zhengyu.github.com/note/2015/12/29/%E6%80%BB%E7%BB%93(II)%20Graph%20and%20Tree%20Review/"/>
     <id>http://yu-zhengyu.github.com/note/2015/12/29/总结(II) Graph and Tree Review/</id>
@@ -556,34 +604,6 @@
     </summary>
     
       <category term="总结" scheme="http://yu-zhengyu.github.com/note/categories/%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
-    
-      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>217. Contains Duplicate</title>
-    <link href="http://yu-zhengyu.github.com/note/2015/12/29/217.%20Contains%20Duplicate/"/>
-    <id>http://yu-zhengyu.github.com/note/2015/12/29/217. Contains Duplicate/</id>
-    <published>2015-12-29T14:22:30.000Z</published>
-    <updated>2016-04-02T05:06:26.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Difficulty-Easy&quot;&gt;&lt;a href=&quot;#Difficulty-Easy&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Easy&quot;&gt;&lt;/a&gt;Difficulty: Easy&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;这个问题非常简单，我的做法就是直接把数组放到set当中就好，然后看set的长度和原数组的长度是否相等，如果相等，就说明没有重复的元素，不相等说明有重复元素。&lt;/p&gt;
-&lt;h3 id=&quot;Code-python&quot;&gt;&lt;a href=&quot;#Code-python&quot; class=&quot;headerlink&quot; title=&quot;Code[python]&quot;&gt;&lt;/a&gt;Code[python]&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class Solution:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # @param &amp;#123;integer[]&amp;#125; nums&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # @return &amp;#123;boolean&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    def containsDuplicate(self, nums):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        b = set(nums)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if len(b) &amp;lt; len(nums):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            return True&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return False&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;当然，如果对空间上有所要求，比如说，不能用额外的空间的话。那我们首先要对数组进行排序。那么时间上的话最快也就是O(nlogn)，然后遍历一遍，看看nums[i] == nums[i-1]是否成立。当然，有时候还有一些题目问在一个链表上，是否有重复元素。那么，我的做法就是用两个指针去做，时间上是O(n2).&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Difficulty-Easy&quot;&gt;&lt;a href=&quot;#Difficulty-Easy&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Easy&quot;&gt;&lt;/a&gt;Difficulty: Easy&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/categories/%E5%88%B7%E9%A2%98/"/>
     
     
       <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
@@ -644,39 +664,6 @@
     </summary>
     
       <category term="总结" scheme="http://yu-zhengyu.github.com/note/categories/%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
-    
-      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>319.Bulb Switcher</title>
-    <link href="http://yu-zhengyu.github.com/note/2015/12/28/319.%20Bulb-Switcher/"/>
-    <id>http://yu-zhengyu.github.com/note/2015/12/28/319. Bulb-Switcher/</id>
-    <published>2015-12-28T14:22:30.000Z</published>
-    <updated>2016-04-02T05:06:06.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Difficulty-Medium&quot;&gt;&lt;a href=&quot;#Difficulty-Medium&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Medium&quot;&gt;&lt;/a&gt;Difficulty: Medium&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;Example:&lt;/p&gt;
-&lt;p&gt;Given n = 3. &lt;/p&gt;
-&lt;p&gt;At first, the three bulbs are [off, off, off].&lt;/p&gt;
-&lt;p&gt;After first round, the three bulbs are [on, on, on].&lt;/p&gt;
-&lt;p&gt;After second round, the three bulbs are [on, off, on].&lt;/p&gt;
-&lt;p&gt;After third round, the three bulbs are [on, off, off]. &lt;/p&gt;
-&lt;p&gt;So you should return 1, because there is only one bulb is on.&lt;/p&gt;
-&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;这个问题其实就是一个数学问题，一个一个试，找出规律后你就会发现其实最后只会剩下平方数下标的灯泡会亮，例如：1，2，4，9，16…… 所以这一题就很简单了，直接对n开方，取整就是最后的结果，简单暴力。&lt;/p&gt;
-&lt;h3 id=&quot;Code&quot;&gt;&lt;a href=&quot;#Code&quot; class=&quot;headerlink&quot; title=&quot;Code&quot;&gt;&lt;/a&gt;Code&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class Solution &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public int bulbSwitch(int n) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return (int)Math.sqrt(n);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Difficulty-Medium&quot;&gt;&lt;a href=&quot;#Difficulty-Medium&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Medium&quot;&gt;&lt;/a&gt;Difficulty: Medium&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/categories/%E5%88%B7%E9%A2%98/"/>
     
     
       <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
@@ -768,6 +755,39 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Difficulty-Medium&quot;&gt;&lt;a href=&quot;#Difficulty-Medium&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Medium&quot;&gt;&lt;/a&gt;Difficulty: Medium&lt;/h3&gt;&lt;h2 id=&quot;Por
+    
+    </summary>
+    
+      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    
+      <category term="leetcode" scheme="http://yu-zhengyu.github.com/note/tags/leetcode/"/>
+    
+      <category term="刷题" scheme="http://yu-zhengyu.github.com/note/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>319.Bulb Switcher</title>
+    <link href="http://yu-zhengyu.github.com/note/2015/12/28/319.%20Bulb-Switcher/"/>
+    <id>http://yu-zhengyu.github.com/note/2015/12/28/319. Bulb-Switcher/</id>
+    <published>2015-12-28T14:22:30.000Z</published>
+    <updated>2016-04-02T05:06:06.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Difficulty-Medium&quot;&gt;&lt;a href=&quot;#Difficulty-Medium&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Medium&quot;&gt;&lt;/a&gt;Difficulty: Medium&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;Example:&lt;/p&gt;
+&lt;p&gt;Given n = 3. &lt;/p&gt;
+&lt;p&gt;At first, the three bulbs are [off, off, off].&lt;/p&gt;
+&lt;p&gt;After first round, the three bulbs are [on, on, on].&lt;/p&gt;
+&lt;p&gt;After second round, the three bulbs are [on, off, on].&lt;/p&gt;
+&lt;p&gt;After third round, the three bulbs are [on, off, off]. &lt;/p&gt;
+&lt;p&gt;So you should return 1, because there is only one bulb is on.&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;这个问题其实就是一个数学问题，一个一个试，找出规律后你就会发现其实最后只会剩下平方数下标的灯泡会亮，例如：1，2，4，9，16…… 所以这一题就很简单了，直接对n开方，取整就是最后的结果，简单暴力。&lt;/p&gt;
+&lt;h3 id=&quot;Code&quot;&gt;&lt;a href=&quot;#Code&quot; class=&quot;headerlink&quot; title=&quot;Code&quot;&gt;&lt;/a&gt;Code&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class Solution &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public int bulbSwitch(int n) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return (int)Math.sqrt(n);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Difficulty-Medium&quot;&gt;&lt;a href=&quot;#Difficulty-Medium&quot; class=&quot;headerlink&quot; title=&quot;Difficulty: Medium&quot;&gt;&lt;/a&gt;Difficulty: Medium&lt;/h3&gt;&lt;h2 id=&quot;Porblem&quot;&gt;&lt;a href=&quot;#Porblem&quot; class=&quot;headerlink&quot; title=&quot;Porblem&quot;&gt;&lt;/a&gt;Porblem&lt;/h2&gt;&lt;p&gt;There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.&lt;br&gt;
     
     </summary>
     
