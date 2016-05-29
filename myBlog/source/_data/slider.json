@@ -1,19 +1,13 @@
 [{
-    "image": "http://lorempixel.com/580/250/nature/1",
+    "image": "/images/1.jpg",
     "align": "center",
-    "title": "This is our big Tagline!",
-    "subtitle": "Here's our small slogan.",
-	"link": "/"
+    "title": "",
+    "subtitle": "",
+	"link": "null"
 }, {
-    "image": "http://lorempixel.com/580/250/nature/2",
-    "align": "left",
-    "title": "Left Aligned Caption",
-    "subtitle": "Here's our small slogan.",
-	"link": null
-}, {
-    "image": "http://lorempixel.com/580/250/nature/3",
+    "image": "/images/2.jpg",
     "align": "right",
-    "title": "Right Aligned Caption",
-    "subtitle": "Here's our small slogan.",
+    "title": "",
+    "subtitle": "",
 	"link": null
 }]

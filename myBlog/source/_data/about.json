@@ -1,8 +1,8 @@
 {
-    "avatar": "http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg",
+    "avatar": "/images/avatar.jpg",
     "name": "郑彧",
 	"tag": "CMU 在读大渣一枚",
-    "desc": "现在 SYSU 混日子，后在 CMU 被虐待，偶尔喜爱装 X 的好青年",
+    "desc": "先在 SYSU 混日子，后在 CMU 被虐待，偶尔喜爱装 X 的好青年",
     "skills": {
     	"Java": 9,
     	"Python": 7,
@@ -29,7 +29,6 @@
 		"link": "https://github.com/yu-zhengyu"
 	}],
 	"reward": [
-	    "http://raytaylorlin-blog.qiniudn.com/image/about/weixin_reward.png",
-		"http://raytaylorlin-blog.qiniudn.com/image/about/zhifubao_reward.png"
+	    "/images/pay.jpg"
 	]
 }
