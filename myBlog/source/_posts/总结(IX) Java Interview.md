@@ -10,16 +10,16 @@ categories:
 
 自己本来是个python的程序员,然而来了CMU后都被带成java程序员了,没办法了,现在面试也以Java为主,不过其实各个语言也是相通的.那么接下来我就收集一些JAVA面试时候会问的奇奇怪怪的问题吧.
 <!--more-->
-##[基础知识篇]
+## [基础知识篇]
 
-#####1. 什么是JVM
+#### 1. 什么是JVM
 ```
 JVM 就是java虚拟机.JVM 会把Java code编译为byte code, 然后执行这些byte code.所有系统都能够安装JAVA虚拟机,这也体现了Java程序的多平台执行优势.
 ```
 
 ***
 
-#####2. OOPS 的重要概念.
+#### 2. OOPS 的重要概念.
 ```
 OOPS就是面向对象编程,主要包括以下4个概念:
 1. Abstraction 抽象性
@@ -30,7 +30,7 @@ OOPS就是面向对象编程,主要包括以下4个概念:
 
 ***
 
-#####3. Overloadding VS Overriding
+#### 3. Overloadding VS Overriding
 ```
 * Overloadding 发生在compile阶段,Overriding 发生在runtime阶段.
 * Overloading是在同一个类中写同一个函数,只是参数的类型不同.而overriding一般会在子类中出现,并且重写的时候函数名字和参数类型是一样的.
@@ -40,14 +40,14 @@ OOPS就是面向对象编程,主要包括以下4个概念:
 
 ***
 
-#####4. static VS instance
+#### 4. static VS instance
 ```
 static method是一个类级别的方法,你可以直接调用它.但是instance方法是一个对象级别的方法,你必须首先创建一个引用指向它,然后再进行调用.
 ```
 
 ***
 
-#####5. Stringbuilder, Stringbuffer, string 的区别
+#### 5. Stringbuilder, Stringbuffer, string 的区别
 ```
 * String是immutable,不可改变的.Stringbuilder 和 Stringbuffer 都是mutable的.
 * Stringbuffer 是 synchronized,Stringbuilder 不是
@@ -58,21 +58,21 @@ static method是一个类级别的方法,你可以直接调用它.但是instance
 
 ***
 
-#####6. Java是值传递还是引用传递
+#### 6. Java是值传递还是引用传递
 ```
 当写函数的过程中,如果参数是基本类,如int或者double,那么我们会发现java是值传递.但是,在Java中对象作为参数传递时,是把对象在内存中的地址拷贝了一份传给了参数.所以,总体来说,都是pass by value.
 ```
 
 ***
 
-#####7. Searialziation 和 Desearialziation.
+#### 7. Searialziation 和 Desearialziation.
 ```
 Searialziation 是将对象转化为数据流,方便对象能够在网络中进行传递.Desearialziation当然就是讲流转为对象了.
 ```
 
 ***
 
-#####8. final, finally, and finalize
+#### 8. final, finally, and finalize
 ```
 * Final 能够修饰变量,方法和类.修饰变量,说明该变量不能再改变.修饰method,说明该方法不能被overridden.修饰class说明该类不能够被继承.
 
@@ -83,7 +83,7 @@ Searialziation 是将对象转化为数据流,方便对象能够在网络中进�
 
 ***
 
-#####9. java如何创建多线程
+#### 9. java如何创建多线程
 ```
 一般在java中,创建多线程有两种方法:
 * 继承Thread类;
@@ -125,29 +125,29 @@ public class simple {
 
 ***
 
-##### 10. java HashMap, 有什么特点
+#### 10. java HashMap, 有什么特点
 
 是基于Map接口的实现，存储键值对时，它可以接收null的键值，是非同步的，HashMap存储着Entry(hash, key, value, next)对象。
 
-##### 11. HashMap 的 get 和 put 函数是如何工作的
+#### 11. HashMap 的 get 和 put 函数是如何工作的
 
 当我们使用 put 函数的时候，我们会把 Key 和 value 传入，hashmap 会使用 hashcood 函数计算出 key 的哈希值，通过计算出的哈希值找到对应的 bucket，如果当前的 bucket 已经满了，HashMap会根据情况对容量进行扩容，一般是当前 capacity 的两倍。使用 get 函数的时候，传入 key 的值，计算出对应的哈希值，找到相应的 bucket，然后在 bucket 中使用 equals 函数找到相应的key。如果出现碰撞的情况，一般会使用链表来解决冲突。
 
-##### 12. Hashcode 函数一般是怎么计算的
+#### 12. Hashcode 函数一般是怎么计算的
 
 在 java1.8中，一般是将key 的高16位异或上低16位获得的。
 
-##### 13. 为什么要创建私有的构造函数
+#### 13. 为什么要创建私有的构造函数
 
 私有构造函数和一般的私有函数没有区别，也是只能够类内部进行调用，外部无法进行访问。创建私有构造函数的原因可能有两个：一，是你不想让除类之外的其他类构造这个类。二是你只希望该对象在类的内部构造。
 
 另外，私有构造函数一般用在singleton design pattern中。这也是开发人员使用私有构造函数的又一个原因。
 
-###### 关于 singleton design
+##### 关于 singleton design
 
 设计 singleton 的关键就是不能让其他类随便构造该类对象。那么，我们唯一能做的就是控制该类的构造函数。将构造函数变为私有是一个关键的步骤。 下面是一个 singleton 设计的例子。
 
-####code[java]
+#### code[java]
 ```
 // 以 singleton 的模式实现该类
 public class Logging {
@@ -169,7 +169,7 @@ public class Logging {
 
 这题还是承接上面的题目来说的。其实只要对 getSingleton 函数稍微修改一下即可
 
-####code[java]
+#### code[java]
 ```
 
 private static Logging singletonInstance = null;
@@ -184,7 +184,7 @@ public static Logging getSingleton() {
 ###### 在设计 singleton 的时候，如何保证线程安全？？
 这个题也是承接上面的两个问题的。首先明白，为什么要保证线程安全。首先，上面的例子, 我们这样看视乎并没有什么问题。这是因为都是基于单线程来看的。假设我们现在有多个线程，并且这些线程同时调用上面的 getsingleton 函数来对实例进行初始化，因为同一时间满足了条件，结果我们也创建了两个或以上的实例。那么怎么解决这个问题。其实，java 也已经替我们想好了，只要在函数前面加上 synchronized 的关键字就可以了。
 
-####code[java]
+#### code[java]
 ```
 
 private static Logging singletonInstance = null;
@@ -202,7 +202,7 @@ synchronized 会保证该函数只有一个线程能够进行访问，从而避�
 ##### 14. finally 中的代码会在 return 之后执行么？
 这个题目也是有趣。一般来说，一个函数如果调用了 return，基本上说明该函数已经停止了，在这之后的代码也不会执行，编译器其实也会提示错误，然而下面的例子能够说明一些问题：
 
-####code[java]
+#### code[java]
 ```
 
 class SomeClass
@@ -244,7 +244,7 @@ finally block is run before method returns.
 ### 用最少的code写一个函数,要求会把栈用光.
 当时第一次遇到这种问题,我本身吓了一跳.不过其实这题是考你基础知识,就是栈和堆的问题.一般来收,所有的对象都是存放到堆中的,而指向对象的reference是存在栈里面的,函数调用,一开始也会放进栈.那么,用光栈最快的方法就是进行递归调用.下面上代码
 
-####code[java]
+#### code[java]
 ```
 public class Useupstack {
 	public static void main(String[] args) {
@@ -263,7 +263,7 @@ public class Useupstack {
 这个也是基础知识的考察,那么,因为java里面不方便对内存直接调用,所以这里我们用C++来进行解答.
 我们知道,C++可以任意对内存进行控制,那么我们就可以用C++的malloc函数来进行内存操作.
 
-####code[C++]
+#### code[C++]
 ```
 
 #include <stdlib.h>
