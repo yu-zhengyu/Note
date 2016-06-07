@@ -15,18 +15,25 @@
     },
     "projects": [{
 		"name": "Twitter 预料分析系统",
-		"image": "/",
-		"tags": ["2016年", "正在攻克"],
+		"image": "/images/cloudComputing.png",
+		"tags": ["2016年", "云计算"],
 		"description": "CMU 15619 课程项目",
 		"link_text": "Github地址",
 		"link": "https://github.com/yu-zhengyu"
 	}, {
 		"name": "Shadow Master",
-		"image": "/",
+		"image": "/images/shadowmaster.jpg",
 		"description": "微软 Imagine Cup 比赛项目，中国赛区二等奖",
-		"tags": ["Github", "获奖作品"],
+		"tags": ["Image Cup","获奖作品"],
 		"link_text": "Github地址",
 		"link": "https://github.com/yu-zhengyu"
+	}, {
+		"name": "Cooking Boot Camp",
+		"image": "/images/CookingBootCamp.jpg",
+		"description": "JavaSmart Phone Course Project",
+		"tags": ["Android", "课程项目"],
+		"link_text": "Github地址",
+		"link": "https://github.com/yu-zhengyu/CookBootCamp_Android_FinalPro"
 	}],
 	"reward": [
 	    "/images/pay.jpg"
